@@ -16,7 +16,7 @@ namespace Plantilla
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "VistasHtml", action = "SinLogin", id = UrlParameter.Optional }
             );
         }
     }
