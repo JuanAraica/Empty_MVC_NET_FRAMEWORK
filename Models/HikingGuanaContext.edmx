@@ -1,0 +1,980 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_A6C1FF_HikingGuanacasteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Actividad">
+          <Key>
+            <PropertyRef Name="idActividad" />
+          </Key>
+          <Property Name="idActividad" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="30" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" />
+          <Property Name="cantidadPersonas" Type="int" />
+          <Property Name="inglumentaria" Type="varchar" MaxLength="200" />
+          <Property Name="requisitos" Type="varchar" MaxLength="200" />
+          <Property Name="precioTotalActividad" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Atraccion">
+          <Key>
+            <PropertyRef Name="idAtraccion" />
+          </Key>
+          <Property Name="idAtraccion" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="30" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" />
+          <Property Name="cantidadPersonas" Type="int" />
+          <Property Name="inglumentaria" Type="varchar" MaxLength="300" />
+          <Property Name="requisitos" Type="varchar" MaxLength="300" />
+          <Property Name="precioTotalAtraccion" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellido1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellido2" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pais" Type="varchar" MaxLength="20" />
+          <Property Name="direccion" Type="varchar" MaxLength="200" />
+          <Property Name="telefono" Type="varchar" MaxLength="15" />
+          <Property Name="contraesnia" Type="varchar" MaxLength="300" />
+          <Property Name="tarjeta" Type="varchar" MaxLength="300" />
+          <Property Name="token" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Colaborador">
+          <Key>
+            <PropertyRef Name="idColaborador" />
+          </Key>
+          <Property Name="idColaborador" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CedColaborador" Type="varchar" MaxLength="100" />
+          <Property Name="nombre" Type="varchar" MaxLength="30" />
+          <Property Name="apellido1" Type="varchar" MaxLength="30" />
+          <Property Name="apellido2" Type="varchar" MaxLength="30" />
+          <Property Name="idiomas" Type="varchar" MaxLength="100" />
+          <Property Name="nacionalidad" Type="varchar" MaxLength="30" />
+          <Property Name="telefono" Type="varchar" MaxLength="100" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="licencia" Type="varchar" MaxLength="25" />
+          <Property Name="tipoColaborador" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Cupon">
+          <Key>
+            <PropertyRef Name="idCupon" />
+          </Key>
+          <Property Name="idCupon" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" />
+          <Property Name="valor" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Destino">
+          <Key>
+            <PropertyRef Name="idDestino" />
+          </Key>
+          <Property Name="idDestino" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipoDestino" Type="varchar" MaxLength="30" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" />
+          <Property Name="idTablaActividades" Type="smallint" />
+          <Property Name="idTablaAtracciones" Type="smallint" />
+          <Property Name="coordenadas" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Gallery">
+          <Key>
+            <PropertyRef Name="idGallery" />
+          </Key>
+          <Property Name="idGallery" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" />
+          <Property Name="image1" Type="varbinary(max)" />
+          <Property Name="image2" Type="varbinary(max)" />
+          <Property Name="image3" Type="varbinary(max)" />
+          <Property Name="image4" Type="varbinary(max)" />
+          <Property Name="image5" Type="varbinary(max)" />
+          <Property Name="image6" Type="varbinary(max)" />
+          <Property Name="image7" Type="varbinary(max)" />
+          <Property Name="image8" Type="varbinary(max)" />
+          <Property Name="image9" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="GestionAdmin">
+          <Key>
+            <PropertyRef Name="idGestionAdmin" />
+          </Key>
+          <Property Name="idGestionAdmin" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idTransporte" Type="smallint" />
+          <Property Name="idTablaColaboradores" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Referencia">
+          <Key>
+            <PropertyRef Name="idReferencia" />
+          </Key>
+          <Property Name="idReferencia" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCliente" Type="smallint" />
+          <Property Name="descipcion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="calificacion" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Servicio">
+          <Key>
+            <PropertyRef Name="idServicio" />
+          </Key>
+          <Property Name="idServicio" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCliente" Type="smallint" />
+          <Property Name="idTablaAtracciones" Type="smallint" />
+          <Property Name="idTablaToures" Type="smallint" />
+          <Property Name="idCupon" Type="smallint" />
+          <Property Name="idTablaDestinos" Type="smallint" />
+          <Property Name="idTablaActividades" Type="smallint" />
+          <Property Name="idGestionAdmin" Type="smallint" />
+          <Property Name="descripcionServicio" Type="varchar" MaxLength="300" />
+          <Property Name="precioTotalServicio" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="impuesto" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="comicion" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="TablaActividades">
+          <Key>
+            <PropertyRef Name="idTablaActividades" />
+          </Key>
+          <Property Name="idTablaActividades" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" />
+          <Property Name="actividad1" Type="smallint" />
+          <Property Name="actividad2" Type="smallint" />
+          <Property Name="actividad3" Type="smallint" />
+          <Property Name="actividad4" Type="smallint" />
+          <Property Name="actividad5" Type="smallint" />
+        </EntityType>
+        <EntityType Name="TablaAtracciones">
+          <Key>
+            <PropertyRef Name="idTablaAtracciones" />
+          </Key>
+          <Property Name="idTablaAtracciones" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" />
+          <Property Name="atraccion1" Type="smallint" />
+          <Property Name="atraccion2" Type="smallint" />
+          <Property Name="atraccion3" Type="smallint" />
+          <Property Name="atraccion4" Type="smallint" />
+          <Property Name="atraccion5" Type="smallint" />
+        </EntityType>
+        <EntityType Name="TablaColaboradores">
+          <Key>
+            <PropertyRef Name="idTablaColaboradores" />
+          </Key>
+          <Property Name="idTablaColaboradores" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" />
+          <Property Name="colaborador1" Type="varchar" MaxLength="100" />
+          <Property Name="colaborador2" Type="varchar" MaxLength="100" />
+          <Property Name="colaborador3" Type="varchar" MaxLength="100" />
+          <Property Name="colaborador4" Type="varchar" MaxLength="100" />
+          <Property Name="colaborador5" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TablaDestinos">
+          <Key>
+            <PropertyRef Name="idTablaDestinos" />
+          </Key>
+          <Property Name="idTablaDestinos" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" />
+          <Property Name="destino1" Type="smallint" />
+          <Property Name="destino2" Type="smallint" />
+          <Property Name="destino3" Type="smallint" />
+          <Property Name="destino4" Type="smallint" />
+          <Property Name="destino5" Type="smallint" />
+        </EntityType>
+        <EntityType Name="TablaToures">
+          <Key>
+            <PropertyRef Name="idTablaToures" />
+          </Key>
+          <Property Name="idTablaToures" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" />
+          <Property Name="idTour1" Type="smallint" />
+          <Property Name="idTour2" Type="smallint" />
+          <Property Name="idTour3" Type="smallint" />
+          <Property Name="idTour4" Type="smallint" />
+          <Property Name="idTour5" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Tour">
+          <Key>
+            <PropertyRef Name="idTour" />
+          </Key>
+          <Property Name="idTour" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idTabladestinos" Type="smallint" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" />
+          <Property Name="lugarSalida" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fechaCheckIn" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="fechaCheckOut" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="alimentacion" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="horaSalida" Type="varchar" MaxLength="15" />
+          <Property Name="horaRegreso" Type="varchar" MaxLength="15" />
+          <Property Name="precio" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="idGallery" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Transporte">
+          <Key>
+            <PropertyRef Name="idTransporte" />
+          </Key>
+          <Property Name="idTransporte" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="20" />
+          <Property Name="placa" Type="varchar" MaxLength="20" />
+          <Property Name="marca" Type="varchar" MaxLength="30" />
+          <Property Name="modelo" Type="varchar" MaxLength="30" />
+          <Property Name="capacidad" Type="int" />
+          <Property Name="color" Type="varchar" MaxLength="20" />
+          <Property Name="colaboradorChofer" Type="smallint" />
+          <Property Name="colaboradorResponsable" Type="smallint" />
+        </EntityType>
+        <Association Name="Fk_Servicio_Atracciones">
+          <End Role="TablaAtracciones" Type="Self.TablaAtracciones" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TablaAtracciones">
+              <PropertyRef Name="idTablaAtracciones" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idTablaAtracciones" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Servicio_Cliente">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Servicio_Cupon">
+          <End Role="Cupon" Type="Self.Cupon" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cupon">
+              <PropertyRef Name="idCupon" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idCupon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Servicio_GestionAdmin">
+          <End Role="GestionAdmin" Type="Self.GestionAdmin" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GestionAdmin">
+              <PropertyRef Name="idGestionAdmin" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idGestionAdmin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Servicio_TablaActividades">
+          <End Role="TablaActividades" Type="Self.TablaActividades" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TablaActividades">
+              <PropertyRef Name="idTablaActividades" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idTablaActividades" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Servicio_TablaDestinos">
+          <End Role="TablaDestinos" Type="Self.TablaDestinos" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TablaDestinos">
+              <PropertyRef Name="idTablaDestinos" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idTablaDestinos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Servicio_Tour">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="idTour" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idTablaToures" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_A6C1FF_HikingGuanacasteModelStoreContainer">
+          <EntitySet Name="Actividad" EntityType="Self.Actividad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Atraccion" EntityType="Self.Atraccion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Colaborador" EntityType="Self.Colaborador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cupon" EntityType="Self.Cupon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Destino" EntityType="Self.Destino" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gallery" EntityType="Self.Gallery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GestionAdmin" EntityType="Self.GestionAdmin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Referencia" EntityType="Self.Referencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TablaActividades" EntityType="Self.TablaActividades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TablaAtracciones" EntityType="Self.TablaAtracciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TablaColaboradores" EntityType="Self.TablaColaboradores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TablaDestinos" EntityType="Self.TablaDestinos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TablaToures" EntityType="Self.TablaToures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tour" EntityType="Self.Tour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transporte" EntityType="Self.Transporte" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Fk_Servicio_Atracciones" Association="Self.Fk_Servicio_Atracciones">
+            <End Role="TablaAtracciones" EntitySet="TablaAtracciones" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Servicio_Cliente" Association="Self.Fk_Servicio_Cliente">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Servicio_Cupon" Association="Self.Fk_Servicio_Cupon">
+            <End Role="Cupon" EntitySet="Cupon" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Servicio_GestionAdmin" Association="Self.Fk_Servicio_GestionAdmin">
+            <End Role="GestionAdmin" EntitySet="GestionAdmin" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Servicio_TablaActividades" Association="Self.Fk_Servicio_TablaActividades">
+            <End Role="TablaActividades" EntitySet="TablaActividades" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Servicio_TablaDestinos" Association="Self.Fk_Servicio_TablaDestinos">
+            <End Role="TablaDestinos" EntitySet="TablaDestinos" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Servicio_Tour" Association="Self.Fk_Servicio_Tour">
+            <End Role="Tour" EntitySet="Tour" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_A6C1FF_HikingGuanacasteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Actividad">
+          <Key>
+            <PropertyRef Name="idActividad" />
+          </Key>
+          <Property Name="idActividad" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="cantidadPersonas" Type="Int32" />
+          <Property Name="inglumentaria" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="requisitos" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="precioTotalActividad" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Atraccion">
+          <Key>
+            <PropertyRef Name="idAtraccion" />
+          </Key>
+          <Property Name="idAtraccion" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="cantidadPersonas" Type="Int32" />
+          <Property Name="inglumentaria" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="requisitos" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="precioTotalAtraccion" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pais" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="contraesnia" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="tarjeta" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="token" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Servicio" Relationship="Self.Fk_Servicio_Cliente" FromRole="Clientes" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="Colaborador">
+          <Key>
+            <PropertyRef Name="idColaborador" />
+          </Key>
+          <Property Name="idColaborador" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CedColaborador" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="apellido1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="apellido2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="idiomas" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nacionalidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="licencia" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="tipoColaborador" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cupon">
+          <Key>
+            <PropertyRef Name="idCupon" />
+          </Key>
+          <Property Name="idCupon" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="valor" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Servicio" Relationship="Self.Fk_Servicio_Cupon" FromRole="Cupon" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="Destino">
+          <Key>
+            <PropertyRef Name="idDestino" />
+          </Key>
+          <Property Name="idDestino" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipoDestino" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="idTablaActividades" Type="Int16" />
+          <Property Name="idTablaAtracciones" Type="Int16" />
+          <Property Name="coordenadas" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Gallery">
+          <Key>
+            <PropertyRef Name="idGallery" />
+          </Key>
+          <Property Name="idGallery" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="image1" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="image2" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="image3" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="image4" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="image5" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="image6" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="image7" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="image8" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="image9" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="GestionAdmin">
+          <Key>
+            <PropertyRef Name="idGestionAdmin" />
+          </Key>
+          <Property Name="idGestionAdmin" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idTransporte" Type="Int16" />
+          <Property Name="idTablaColaboradores" Type="Int16" />
+          <NavigationProperty Name="Servicio" Relationship="Self.Fk_Servicio_GestionAdmin" FromRole="GestionAdmin" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="Referencia">
+          <Key>
+            <PropertyRef Name="idReferencia" />
+          </Key>
+          <Property Name="idReferencia" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCliente" Type="Int16" />
+          <Property Name="descipcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="calificacion" Type="Int16" />
+        </EntityType>
+        <EntityType Name="Servicio">
+          <Key>
+            <PropertyRef Name="idServicio" />
+          </Key>
+          <Property Name="idServicio" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCliente" Type="Int16" />
+          <Property Name="idTablaAtracciones" Type="Int16" />
+          <Property Name="idTablaToures" Type="Int16" />
+          <Property Name="idCupon" Type="Int16" />
+          <Property Name="idTablaDestinos" Type="Int16" />
+          <Property Name="idTablaActividades" Type="Int16" />
+          <Property Name="idGestionAdmin" Type="Int16" />
+          <Property Name="descripcionServicio" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="precioTotalServicio" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="impuesto" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="comicion" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Clientes" Relationship="Self.Fk_Servicio_Cliente" FromRole="Servicio" ToRole="Clientes" />
+          <NavigationProperty Name="Cupon" Relationship="Self.Fk_Servicio_Cupon" FromRole="Servicio" ToRole="Cupon" />
+          <NavigationProperty Name="GestionAdmin" Relationship="Self.Fk_Servicio_GestionAdmin" FromRole="Servicio" ToRole="GestionAdmin" />
+          <NavigationProperty Name="TablaAtracciones" Relationship="Self.Fk_Servicio_Atracciones" FromRole="Servicio" ToRole="TablaAtracciones" />
+          <NavigationProperty Name="TablaActividades" Relationship="Self.Fk_Servicio_TablaActividades" FromRole="Servicio" ToRole="TablaActividades" />
+          <NavigationProperty Name="TablaDestinos" Relationship="Self.Fk_Servicio_TablaDestinos" FromRole="Servicio" ToRole="TablaDestinos" />
+          <NavigationProperty Name="Tour" Relationship="Self.Fk_Servicio_Tour" FromRole="Servicio" ToRole="Tour" />
+        </EntityType>
+        <EntityType Name="TablaActividades">
+          <Key>
+            <PropertyRef Name="idTablaActividades" />
+          </Key>
+          <Property Name="idTablaActividades" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="actividad1" Type="Int16" />
+          <Property Name="actividad2" Type="Int16" />
+          <Property Name="actividad3" Type="Int16" />
+          <Property Name="actividad4" Type="Int16" />
+          <Property Name="actividad5" Type="Int16" />
+          <NavigationProperty Name="Servicio" Relationship="Self.Fk_Servicio_TablaActividades" FromRole="TablaActividades" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="TablaAtracciones">
+          <Key>
+            <PropertyRef Name="idTablaAtracciones" />
+          </Key>
+          <Property Name="idTablaAtracciones" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="atraccion1" Type="Int16" />
+          <Property Name="atraccion2" Type="Int16" />
+          <Property Name="atraccion3" Type="Int16" />
+          <Property Name="atraccion4" Type="Int16" />
+          <Property Name="atraccion5" Type="Int16" />
+          <NavigationProperty Name="Servicio" Relationship="Self.Fk_Servicio_Atracciones" FromRole="TablaAtracciones" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="TablaColaboradores">
+          <Key>
+            <PropertyRef Name="idTablaColaboradores" />
+          </Key>
+          <Property Name="idTablaColaboradores" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="colaborador1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="colaborador2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="colaborador3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="colaborador4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="colaborador5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TablaDestinos">
+          <Key>
+            <PropertyRef Name="idTablaDestinos" />
+          </Key>
+          <Property Name="idTablaDestinos" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="destino1" Type="Int16" />
+          <Property Name="destino2" Type="Int16" />
+          <Property Name="destino3" Type="Int16" />
+          <Property Name="destino4" Type="Int16" />
+          <Property Name="destino5" Type="Int16" />
+          <NavigationProperty Name="Servicio" Relationship="Self.Fk_Servicio_TablaDestinos" FromRole="TablaDestinos" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="TablaToures">
+          <Key>
+            <PropertyRef Name="idTablaToures" />
+          </Key>
+          <Property Name="idTablaToures" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="idTour1" Type="Int16" />
+          <Property Name="idTour2" Type="Int16" />
+          <Property Name="idTour3" Type="Int16" />
+          <Property Name="idTour4" Type="Int16" />
+          <Property Name="idTour5" Type="Int16" />
+        </EntityType>
+        <EntityType Name="Tour">
+          <Key>
+            <PropertyRef Name="idTour" />
+          </Key>
+          <Property Name="idTour" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idTabladestinos" Type="Int16" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="lugarSalida" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaCheckIn" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaCheckOut" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="alimentacion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="horaSalida" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="horaRegreso" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="precio" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="idGallery" Type="Int16" />
+          <NavigationProperty Name="Servicio" Relationship="Self.Fk_Servicio_Tour" FromRole="Tour" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="Transporte">
+          <Key>
+            <PropertyRef Name="idTransporte" />
+          </Key>
+          <Property Name="idTransporte" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="placa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="marca" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="modelo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="capacidad" Type="Int32" />
+          <Property Name="color" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="colaboradorChofer" Type="Int16" />
+          <Property Name="colaboradorResponsable" Type="Int16" />
+        </EntityType>
+        <Association Name="Fk_Servicio_Cliente">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Servicio_Cupon">
+          <End Role="Cupon" Type="Self.Cupon" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cupon">
+              <PropertyRef Name="idCupon" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idCupon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Servicio_GestionAdmin">
+          <End Role="GestionAdmin" Type="Self.GestionAdmin" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GestionAdmin">
+              <PropertyRef Name="idGestionAdmin" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idGestionAdmin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Servicio_Atracciones">
+          <End Role="TablaAtracciones" Type="Self.TablaAtracciones" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TablaAtracciones">
+              <PropertyRef Name="idTablaAtracciones" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idTablaAtracciones" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Servicio_TablaActividades">
+          <End Role="TablaActividades" Type="Self.TablaActividades" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TablaActividades">
+              <PropertyRef Name="idTablaActividades" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idTablaActividades" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Servicio_TablaDestinos">
+          <End Role="TablaDestinos" Type="Self.TablaDestinos" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TablaDestinos">
+              <PropertyRef Name="idTablaDestinos" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idTablaDestinos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Servicio_Tour">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="idTour" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idTablaToures" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_A6C1FF_HikingGuanacasteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Actividad" EntityType="Self.Actividad" />
+          <EntitySet Name="Atraccion" EntityType="Self.Atraccion" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+          <EntitySet Name="Colaborador" EntityType="Self.Colaborador" />
+          <EntitySet Name="Cupon" EntityType="Self.Cupon" />
+          <EntitySet Name="Destino" EntityType="Self.Destino" />
+          <EntitySet Name="Gallery" EntityType="Self.Gallery" />
+          <EntitySet Name="GestionAdmin" EntityType="Self.GestionAdmin" />
+          <EntitySet Name="Referencia" EntityType="Self.Referencia" />
+          <EntitySet Name="Servicio" EntityType="Self.Servicio" />
+          <EntitySet Name="TablaActividades" EntityType="Self.TablaActividades" />
+          <EntitySet Name="TablaAtracciones" EntityType="Self.TablaAtracciones" />
+          <EntitySet Name="TablaColaboradores" EntityType="Self.TablaColaboradores" />
+          <EntitySet Name="TablaDestinos" EntityType="Self.TablaDestinos" />
+          <EntitySet Name="TablaToures" EntityType="Self.TablaToures" />
+          <EntitySet Name="Tour" EntityType="Self.Tour" />
+          <EntitySet Name="Transporte" EntityType="Self.Transporte" />
+          <AssociationSet Name="Fk_Servicio_Cliente" Association="Self.Fk_Servicio_Cliente">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Servicio_Cupon" Association="Self.Fk_Servicio_Cupon">
+            <End Role="Cupon" EntitySet="Cupon" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Servicio_GestionAdmin" Association="Self.Fk_Servicio_GestionAdmin">
+            <End Role="GestionAdmin" EntitySet="GestionAdmin" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Servicio_Atracciones" Association="Self.Fk_Servicio_Atracciones">
+            <End Role="TablaAtracciones" EntitySet="TablaAtracciones" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Servicio_TablaActividades" Association="Self.Fk_Servicio_TablaActividades">
+            <End Role="TablaActividades" EntitySet="TablaActividades" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Servicio_TablaDestinos" Association="Self.Fk_Servicio_TablaDestinos">
+            <End Role="TablaDestinos" EntitySet="TablaDestinos" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Servicio_Tour" Association="Self.Fk_Servicio_Tour">
+            <End Role="Tour" EntitySet="Tour" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_A6C1FF_HikingGuanacasteModelStoreContainer" CdmEntityContainer="DB_A6C1FF_HikingGuanacasteEntities">
+          <EntitySetMapping Name="Actividad">
+            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Actividad">
+              <MappingFragment StoreEntitySet="Actividad">
+                <ScalarProperty Name="idActividad" ColumnName="idActividad" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="cantidadPersonas" ColumnName="cantidadPersonas" />
+                <ScalarProperty Name="inglumentaria" ColumnName="inglumentaria" />
+                <ScalarProperty Name="requisitos" ColumnName="requisitos" />
+                <ScalarProperty Name="precioTotalActividad" ColumnName="precioTotalActividad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Atraccion">
+            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Atraccion">
+              <MappingFragment StoreEntitySet="Atraccion">
+                <ScalarProperty Name="idAtraccion" ColumnName="idAtraccion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="cantidadPersonas" ColumnName="cantidadPersonas" />
+                <ScalarProperty Name="inglumentaria" ColumnName="inglumentaria" />
+                <ScalarProperty Name="requisitos" ColumnName="requisitos" />
+                <ScalarProperty Name="precioTotalAtraccion" ColumnName="precioTotalAtraccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="contraesnia" ColumnName="contraesnia" />
+                <ScalarProperty Name="tarjeta" ColumnName="tarjeta" />
+                <ScalarProperty Name="token" ColumnName="token" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Colaborador">
+            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Colaborador">
+              <MappingFragment StoreEntitySet="Colaborador">
+                <ScalarProperty Name="idColaborador" ColumnName="idColaborador" />
+                <ScalarProperty Name="CedColaborador" ColumnName="CedColaborador" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+                <ScalarProperty Name="idiomas" ColumnName="idiomas" />
+                <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="licencia" ColumnName="licencia" />
+                <ScalarProperty Name="tipoColaborador" ColumnName="tipoColaborador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cupon">
+            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Cupon">
+              <MappingFragment StoreEntitySet="Cupon">
+                <ScalarProperty Name="idCupon" ColumnName="idCupon" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Destino">
+            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Destino">
+              <MappingFragment StoreEntitySet="Destino">
+                <ScalarProperty Name="idDestino" ColumnName="idDestino" />
+                <ScalarProperty Name="tipoDestino" ColumnName="tipoDestino" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="idTablaActividades" ColumnName="idTablaActividades" />
+                <ScalarProperty Name="idTablaAtracciones" ColumnName="idTablaAtracciones" />
+                <ScalarProperty Name="coordenadas" ColumnName="coordenadas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gallery">
+            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Gallery">
+              <MappingFragment StoreEntitySet="Gallery">
+                <ScalarProperty Name="idGallery" ColumnName="idGallery" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="image1" ColumnName="image1" />
+                <ScalarProperty Name="image2" ColumnName="image2" />
+                <ScalarProperty Name="image3" ColumnName="image3" />
+                <ScalarProperty Name="image4" ColumnName="image4" />
+                <ScalarProperty Name="image5" ColumnName="image5" />
+                <ScalarProperty Name="image6" ColumnName="image6" />
+                <ScalarProperty Name="image7" ColumnName="image7" />
+                <ScalarProperty Name="image8" ColumnName="image8" />
+                <ScalarProperty Name="image9" ColumnName="image9" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GestionAdmin">
+            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.GestionAdmin">
+              <MappingFragment StoreEntitySet="GestionAdmin">
+                <ScalarProperty Name="idGestionAdmin" ColumnName="idGestionAdmin" />
+                <ScalarProperty Name="idTransporte" ColumnName="idTransporte" />
+                <ScalarProperty Name="idTablaColaboradores" ColumnName="idTablaColaboradores" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Referencia">
+            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Referencia">
+              <MappingFragment StoreEntitySet="Referencia">
+                <ScalarProperty Name="idReferencia" ColumnName="idReferencia" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="descipcion" ColumnName="descipcion" />
+                <ScalarProperty Name="calificacion" ColumnName="calificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicio">
+            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Servicio">
+              <MappingFragment StoreEntitySet="Servicio">
+                <ScalarProperty Name="idServicio" ColumnName="idServicio" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="idTablaAtracciones" ColumnName="idTablaAtracciones" />
+                <ScalarProperty Name="idTablaToures" ColumnName="idTablaToures" />
+                <ScalarProperty Name="idCupon" ColumnName="idCupon" />
+                <ScalarProperty Name="idTablaDestinos" ColumnName="idTablaDestinos" />
+                <ScalarProperty Name="idTablaActividades" ColumnName="idTablaActividades" />
+                <ScalarProperty Name="idGestionAdmin" ColumnName="idGestionAdmin" />
+                <ScalarProperty Name="descripcionServicio" ColumnName="descripcionServicio" />
+                <ScalarProperty Name="precioTotalServicio" ColumnName="precioTotalServicio" />
+                <ScalarProperty Name="impuesto" ColumnName="impuesto" />
+                <ScalarProperty Name="comicion" ColumnName="comicion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TablaActividades">
+            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.TablaActividades">
+              <MappingFragment StoreEntitySet="TablaActividades">
+                <ScalarProperty Name="idTablaActividades" ColumnName="idTablaActividades" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="actividad1" ColumnName="actividad1" />
+                <ScalarProperty Name="actividad2" ColumnName="actividad2" />
+                <ScalarProperty Name="actividad3" ColumnName="actividad3" />
+                <ScalarProperty Name="actividad4" ColumnName="actividad4" />
+                <ScalarProperty Name="actividad5" ColumnName="actividad5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TablaAtracciones">
+            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.TablaAtracciones">
+              <MappingFragment StoreEntitySet="TablaAtracciones">
+                <ScalarProperty Name="idTablaAtracciones" ColumnName="idTablaAtracciones" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="atraccion1" ColumnName="atraccion1" />
+                <ScalarProperty Name="atraccion2" ColumnName="atraccion2" />
+                <ScalarProperty Name="atraccion3" ColumnName="atraccion3" />
+                <ScalarProperty Name="atraccion4" ColumnName="atraccion4" />
+                <ScalarProperty Name="atraccion5" ColumnName="atraccion5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TablaColaboradores">
+            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.TablaColaboradores">
+              <MappingFragment StoreEntitySet="TablaColaboradores">
+                <ScalarProperty Name="idTablaColaboradores" ColumnName="idTablaColaboradores" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="colaborador1" ColumnName="colaborador1" />
+                <ScalarProperty Name="colaborador2" ColumnName="colaborador2" />
+                <ScalarProperty Name="colaborador3" ColumnName="colaborador3" />
+                <ScalarProperty Name="colaborador4" ColumnName="colaborador4" />
+                <ScalarProperty Name="colaborador5" ColumnName="colaborador5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TablaDestinos">
+            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.TablaDestinos">
+              <MappingFragment StoreEntitySet="TablaDestinos">
+                <ScalarProperty Name="idTablaDestinos" ColumnName="idTablaDestinos" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="destino1" ColumnName="destino1" />
+                <ScalarProperty Name="destino2" ColumnName="destino2" />
+                <ScalarProperty Name="destino3" ColumnName="destino3" />
+                <ScalarProperty Name="destino4" ColumnName="destino4" />
+                <ScalarProperty Name="destino5" ColumnName="destino5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TablaToures">
+            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.TablaToures">
+              <MappingFragment StoreEntitySet="TablaToures">
+                <ScalarProperty Name="idTablaToures" ColumnName="idTablaToures" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="idTour1" ColumnName="idTour1" />
+                <ScalarProperty Name="idTour2" ColumnName="idTour2" />
+                <ScalarProperty Name="idTour3" ColumnName="idTour3" />
+                <ScalarProperty Name="idTour4" ColumnName="idTour4" />
+                <ScalarProperty Name="idTour5" ColumnName="idTour5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tour">
+            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Tour">
+              <MappingFragment StoreEntitySet="Tour">
+                <ScalarProperty Name="idTour" ColumnName="idTour" />
+                <ScalarProperty Name="idTabladestinos" ColumnName="idTabladestinos" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="lugarSalida" ColumnName="lugarSalida" />
+                <ScalarProperty Name="fechaCheckIn" ColumnName="fechaCheckIn" />
+                <ScalarProperty Name="fechaCheckOut" ColumnName="fechaCheckOut" />
+                <ScalarProperty Name="alimentacion" ColumnName="alimentacion" />
+                <ScalarProperty Name="horaSalida" ColumnName="horaSalida" />
+                <ScalarProperty Name="horaRegreso" ColumnName="horaRegreso" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="idGallery" ColumnName="idGallery" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transporte">
+            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Transporte">
+              <MappingFragment StoreEntitySet="Transporte">
+                <ScalarProperty Name="idTransporte" ColumnName="idTransporte" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="placa" ColumnName="placa" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="capacidad" ColumnName="capacidad" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="colaboradorChofer" ColumnName="colaboradorChofer" />
+                <ScalarProperty Name="colaboradorResponsable" ColumnName="colaboradorResponsable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
