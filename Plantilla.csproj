@@ -123,6 +123,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\VistasHtmlController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -315,7 +316,6 @@
     <Content Include="Scripts\modules\scrolling-navbar.min.js.map" />
     <Content Include="Scripts\modules\treeview.min.js.map" />
     <Content Include="Scripts\modules\wow.min.js.map" />
-    <Content Include="Views\Shared\_Layout - Copia.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />
@@ -325,6 +325,13 @@
     <Content Include="Scripts\popper.min.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Shared\_LayoutLogOut.cshtml" />
+    <Content Include="Views\VistasHtml\SinLogin.cshtml" />
+    <Content Include="Views\VistasHtml\ReservForm.cshtml" />
+    <Content Include="Views\Shared\_LayoutColaboradores.cshtml" />
+    <Content Include="Views\Shared\_LayoutDentro.cshtml" />
+    <Content Include="Views\VistasHtml\HomeAdmin.cshtml" />
+    <Content Include="Views\VistasHtml\MainMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

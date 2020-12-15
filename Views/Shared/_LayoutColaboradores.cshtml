@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" href="~/Content/Images/Logo.jpg" type="image/x-icon">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <div class="container-for-admin">
+        <!--Main Navigation-->
+        <header>
+
+            <!-- Navbar -->
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+                <div class="container-fluid">
+
+                    <!-- Brand -->
+                    <a class="navbar-brand waves-effect" href="#" >
+                        <strong class="blue-text">Haking Guanacaste</strong>
+                    </a>
+
+                    <!-- Collapse -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- Links -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                        <!-- Left -->
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link waves-effect" href="#">
+                                    Toures
+ 
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link waves-effect" href="#" >
+                                    Destinos
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link waves-effect" href="#"  >
+                                    Actividades
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link waves-effect" href="#"  >
+                                    Atracciones
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- Right -->
+                        <ul class="navbar-nav nav-flex-icons">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link waves-effect" >
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link waves-effect"  >
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("SinLogin","VistasHtml")" class="nav-link border border-light rounded waves-effect"
+                                    >
+                                    <i class="fab fa-github mr-2"></i>Log Out
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </nav>
+            <!-- Navbar -->
+            <!-- Sidebar -->
+            <div class="sidebar-fixed position-fixed">
+
+                <a class="logo-wrapper waves-effect">
+                    <img src="~/Content/Images/Logo.jpg" class="img-fluid" alt="">
+                </a>
+                <div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action waves-effect">
+                        <i class="fa fa-pie-chart mr-3"></i>Clientes
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action waves-effect">
+                        <i class="fa fa-user mr-3"></i>Colaboradores
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action waves-effect">
+                        <i class="fa fa-table mr-3"></i>Transporte
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action waves-effect">
+                        <i class="fa fa-map mr-3"></i>Referenias y Opiniones
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action waves-effect">
+                        <i class="fa fa-money mr-3"></i>Orders
+                    </a>
+                </div>
+
+            </div>
+            <!-- Sidebar -->
+
+        </header>
+        <!--Main Navigation-->
+        <!--Main layout-->
+        <main class="pt-5 mx-lg-5">
+            <div class="container-fluid mt-5">
+
+                @RenderBody()
+            </div>
+        </main>
+        <!--Main layout-->
+        <!--Footer-->
+        <footer class="page-footer text-center font-small primary-color-dark darken-2 mt-4 wow fadeIn">
+            <hr class="my-4">
+
+
+            <!-- Social icons -->
+            <!--Copyright-->
+            <div class="footer-copyright py-3">
+                © 2021 Copyright: <a href="#">Haking Guanacaste</a>
+            </div>
+            <!--/.Copyright-->
+
+        </footer>
+        <!--/.Footer-->
+    </div>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

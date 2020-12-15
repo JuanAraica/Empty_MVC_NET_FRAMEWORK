@@ -10,6 +10,61 @@
 </head>
 <body>
 
+
+    @*Modal de contacto*@
+    <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Write to us</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <i class="fas fa-user prefix grey-text"></i>
+                        <input type="text" id="form34" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="form34">Your name</label>
+                    </div>
+
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input type="email" id="form29" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="form29">Your email</label>
+                    </div>
+
+                    <div class="md-form mb-5">
+                        <i class="fas fa-tag prefix grey-text"></i>
+                        <input type="text" id="form32" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="form32">Subject</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fas fa-pencil prefix grey-text"></i>
+                        <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
+                        <label data-error="wrong" data-success="right" for="form8">Your message</label>
+                    </div>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-unique">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
     <nav class="mb-1 navbar navbar-expand-lg navbar-dark secondary-color lighten-1">
         <a class="navbar-brand" href="#" data-toggle="modal" data-target="#modalContactForm">Contact Us/</a><span class="navbar-brand">Follow:</span>
         <a class="nav-link" href="#"><span class="icon icon-instagram"></span></a>
@@ -26,7 +81,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
- 
+
             <ul class="navbar-nav ml-auto nav-flex-icons">
                 <li class="nav-item avatar dropdown">
                     <a class="nav-link" href="#">Tel: 8888-9999     |</a>
@@ -56,6 +111,7 @@
                         <a class="dropdown-item" href="#">Action</a>
                         <a class="dropdown-item" href="#">Another action</a>
                         <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="@Url.Action("SinLogin","VistaHtml")">Log Out</a>
                     </div>
                 </li>
             </ul>
