@@ -1,0 +1,98 @@
+﻿@model Plantilla.Models.Tour
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idTabladestinos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idTabladestinos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lugarSalida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lugarSalida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaCheckIn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaCheckIn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaCheckOut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaCheckOut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.alimentacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.alimentacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.horaSalida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.horaSalida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.horaRegreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.horaRegreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idGallery)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idGallery)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idTour }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

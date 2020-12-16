@@ -24,5 +24,9 @@ namespace Plantilla.Controllers
         {
             return View();
         }
+        public ActionResult MenuServicios()
+        {
+            return View();
+        }
     }
 }
