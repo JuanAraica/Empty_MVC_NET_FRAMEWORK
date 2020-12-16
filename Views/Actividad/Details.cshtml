@@ -1,0 +1,66 @@
+﻿@model Plantilla.Models.Actividad
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Actividad</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidadPersonas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidadPersonas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.inglumentaria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.inglumentaria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.requisitos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.requisitos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precioTotalActividad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precioTotalActividad)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idActividad }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

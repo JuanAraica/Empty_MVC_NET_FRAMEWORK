@@ -130,8 +130,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ActividadController.cs" />
+    <Compile Include="Controllers\AtraccionController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\ColaboradorController.cs" />
+    <Compile Include="Controllers\CuponController.cs" />
+    <Compile Include="Controllers\DestinoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReferenciaController.cs" />
+    <Compile Include="Controllers\ServicioController.cs" />
     <Compile Include="Controllers\VistasHtmlController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -429,6 +436,41 @@
     <Content Include="Views\Colaborador\Details.cshtml" />
     <Content Include="Views\Colaborador\Edit.cshtml" />
     <Content Include="Views\Colaborador\Index.cshtml" />
+    <Content Include="Views\Actividad\Create.cshtml" />
+    <Content Include="Views\Actividad\Delete.cshtml" />
+    <Content Include="Views\Actividad\Details.cshtml" />
+    <Content Include="Views\Actividad\Edit.cshtml" />
+    <Content Include="Views\Actividad\Index.cshtml" />
+    <Content Include="Views\Clientes\Create.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Atraccion\Create.cshtml" />
+    <Content Include="Views\Atraccion\Delete.cshtml" />
+    <Content Include="Views\Atraccion\Details.cshtml" />
+    <Content Include="Views\Atraccion\Edit.cshtml" />
+    <Content Include="Views\Atraccion\Index.cshtml" />
+    <Content Include="Views\Cupon\Create.cshtml" />
+    <Content Include="Views\Cupon\Delete.cshtml" />
+    <Content Include="Views\Cupon\Details.cshtml" />
+    <Content Include="Views\Cupon\Edit.cshtml" />
+    <Content Include="Views\Cupon\Index.cshtml" />
+    <Content Include="Views\Destino\Create.cshtml" />
+    <Content Include="Views\Destino\Delete.cshtml" />
+    <Content Include="Views\Destino\Details.cshtml" />
+    <Content Include="Views\Destino\Edit.cshtml" />
+    <Content Include="Views\Destino\Index.cshtml" />
+    <Content Include="Views\Referencia\Create.cshtml" />
+    <Content Include="Views\Referencia\Delete.cshtml" />
+    <Content Include="Views\Referencia\Details.cshtml" />
+    <Content Include="Views\Referencia\Edit.cshtml" />
+    <Content Include="Views\Referencia\Index.cshtml" />
+    <Content Include="Views\Servicio\Create.cshtml" />
+    <Content Include="Views\Servicio\Delete.cshtml" />
+    <Content Include="Views\Servicio\Details.cshtml" />
+    <Content Include="Views\Servicio\Edit.cshtml" />
+    <Content Include="Views\Servicio\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

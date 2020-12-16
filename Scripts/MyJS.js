@@ -2,6 +2,10 @@
     $('.mdb-select').material_select();
 });
 
+$(document).ready(function () {
+    $('.mdb-select').materialSelect();
+});
+
 var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',

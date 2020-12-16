@@ -1,0 +1,98 @@
+﻿@model Plantilla.Models.Clientes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Clientes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellido1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellido1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellido2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellido2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pais)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pais)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contraesnia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contraesnia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tarjeta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tarjeta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.token)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.token)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idCliente }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Plantilla.Models.Servicio>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcionServicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precioTotalServicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.impuesto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comicion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clientes.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cupon.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GestionAdmin.idGestionAdmin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TablaAtracciones.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TablaActividades.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TablaDestinos.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tour.descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcionServicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precioTotalServicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.impuesto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comicion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clientes.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cupon.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GestionAdmin.idGestionAdmin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TablaAtracciones.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TablaActividades.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TablaDestinos.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tour.descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idServicio }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idServicio }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idServicio })
+        </td>
+    </tr>
+}
+
+</table>

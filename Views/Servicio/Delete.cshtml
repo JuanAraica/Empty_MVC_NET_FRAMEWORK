@@ -1,0 +1,112 @@
+﻿@model Plantilla.Models.Servicio
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Servicio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcionServicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcionServicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precioTotalServicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precioTotalServicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.impuesto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.impuesto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comicion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comicion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clientes.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clientes.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cupon.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cupon.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GestionAdmin.idGestionAdmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GestionAdmin.idGestionAdmin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TablaAtracciones.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TablaAtracciones.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TablaActividades.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TablaActividades.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TablaDestinos.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TablaDestinos.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tour.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tour.descripcion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

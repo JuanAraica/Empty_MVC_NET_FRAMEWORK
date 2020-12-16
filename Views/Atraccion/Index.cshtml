@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Plantilla.Models.Atraccion>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidadPersonas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.inglumentaria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.requisitos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precioTotalAtraccion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidadPersonas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.inglumentaria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.requisitos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precioTotalAtraccion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idAtraccion }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idAtraccion }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idAtraccion })
+        </td>
+    </tr>
+}
+
+</table>
