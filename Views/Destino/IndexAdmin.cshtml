@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Plantilla.Models.Destino>
+@{
+    Layout = "~/Views/Shared/_LayoutColaboradores.cshtml";
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tipoDestino)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idTablaActividades)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idTablaAtracciones)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.coordenadas)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipoDestino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idTablaActividades)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idTablaAtracciones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.coordenadas)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.idDestino }) |
+                @Html.ActionLink("Details", "Details", new { id = item.idDestino }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.idDestino })
+            </td>
+        </tr>
+    }
+
+</table>

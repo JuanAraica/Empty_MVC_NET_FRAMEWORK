@@ -20,6 +20,10 @@ namespace Plantilla.Controllers
         {
             return View(await db.Atraccion.ToListAsync());
         }
+        public async Task<ActionResult> IndexAdmin()
+        {
+            return View(await db.Atraccion.ToListAsync());
+        }
 
         // GET: Atraccion/Details/5
         public async Task<ActionResult> Details(short? id)

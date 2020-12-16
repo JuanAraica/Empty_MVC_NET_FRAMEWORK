@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Plantilla.Models.Referencia>
+@{
+    Layout = "~/Views/Shared/_LayoutColaboradores.cshtml";
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descipcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.calificacion)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descipcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.calificacion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.idReferencia }) |
+                @Html.ActionLink("Details", "Details", new { id = item.idReferencia }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.idReferencia })
+            </td>
+        </tr>
+    }
+
+</table>

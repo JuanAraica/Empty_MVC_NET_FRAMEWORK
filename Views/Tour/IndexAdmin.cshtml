@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<Plantilla.Models.Tour>
-
-
-
-<h2>Toures Registrados</h2>
-
+@{
+    Layout = "~/Views/Shared/_LayoutColaboradores.cshtml";
+}
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
-
+        <th>
+            @Html.DisplayNameFor(model => model.idTabladestinos)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.descripcion)
         </th>
@@ -43,7 +43,9 @@
     @foreach (var item in Model)
     {
         <tr>
-
+            <td>
+                @Html.DisplayFor(modelItem => item.idTabladestinos)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.descripcion)
             </td>

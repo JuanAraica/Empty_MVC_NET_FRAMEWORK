@@ -21,6 +21,11 @@ namespace Plantilla.Controllers
             var servicio = db.Servicio.Include(s => s.Clientes).Include(s => s.Cupon).Include(s => s.GestionAdmin).Include(s => s.TablaAtracciones).Include(s => s.TablaActividades).Include(s => s.TablaDestinos).Include(s => s.Tour);
             return View(await servicio.ToListAsync());
         }
+        public async Task<ActionResult> IndexAdmin()
+        {
+            var servicio = db.Servicio.Include(s => s.Clientes).Include(s => s.Cupon).Include(s => s.GestionAdmin).Include(s => s.TablaAtracciones).Include(s => s.TablaActividades).Include(s => s.TablaDestinos).Include(s => s.Tour);
+            return View(await servicio.ToListAsync());
+        }
 
         // GET: Servicio/Details/5
         public async Task<ActionResult> Details(short? id)

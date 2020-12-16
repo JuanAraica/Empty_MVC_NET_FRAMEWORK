@@ -484,6 +484,15 @@
     <Content Include="Views\Transporte\Details.cshtml" />
     <Content Include="Views\Transporte\Edit.cshtml" />
     <Content Include="Views\Transporte\Index.cshtml" />
+    <Content Include="Views\Tour\IndexAdmin.cshtml" />
+    <Content Include="Views\Actividad\IndexAdmin.cshtml" />
+    <Content Include="Views\Atraccion\IndexAdmin.cshtml" />
+    <Content Include="Views\Cupon\IndexAdmin.cshtml" />
+    <Content Include="Views\Destino\IndexAdmin.cshtml" />
+    <Content Include="Views\Referencia\IndexAdmin.cshtml" />
+    <Content Include="Views\Servicio\IndexAdmin.cshtml" />
+    <Content Include="Views\Transporte\IndexAdmin.cshtml" />
+    <Content Include="Views\Colaborador\IndexAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
