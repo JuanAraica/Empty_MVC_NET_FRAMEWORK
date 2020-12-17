@@ -20,6 +20,10 @@ namespace Plantilla.Controllers
         {
             return View(await db.Colaborador.ToListAsync());
         }
+        public async Task<ActionResult> IndexLogOut()
+        {
+            return View(await db.Colaborador.ToListAsync());
+        }
         public async Task<ActionResult> IndexAdmin()
         {
             return View(await db.Colaborador.ToListAsync());
@@ -51,16 +55,16 @@ namespace Plantilla.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "idColaborador,CedColaborador,nombre,apellido1,apellido2,idiomas,nacionalidad,telefono,email,licencia,tipoColaborador")] Colaborador colaborador)
+        public  ActionResult Create( Colaborador oColaborador)
         {
             if (ModelState.IsValid)
             {
-                db.Colaborador.Add(colaborador);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                db.Colaborador.Add(oColaborador);
+                db.SaveChanges();
+                return View();
             }
 
-            return View(colaborador);
+            return View( );
         }
 
         // GET: Colaborador/Edit/5
