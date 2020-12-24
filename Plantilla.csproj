@@ -231,6 +231,7 @@
     <Content Include="Content\fonts\icomoon.svg" />
     <Content Include="Content\Images\Logo.jpg" />
     <Content Include="Content\Images\SuperVista.jpg" />
+    <Content Include="Content\Images\VistaOp.jpg" />
     <Content Include="Content\mdb.css" />
     <Content Include="Content\mdb.min.css" />
     <Content Include="Content\modules\animations-extended.min.css" />

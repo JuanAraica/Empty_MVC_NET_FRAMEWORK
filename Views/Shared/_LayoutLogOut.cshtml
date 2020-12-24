@@ -3,6 +3,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <link rel="shortcut icon" href="~/Content/Images/Logo.jpg" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Hiking Guanacaste</title>
@@ -463,7 +467,7 @@
                                     <label data-error="wrong" data-success="right" for="modalLRInput11">Your password</label>
                                 </div>
                                 <div class="text-center mt-2">
-                                    <button   class="btn btn-info"> @Html.ActionLink("Log In","MainMenu","VistasHtml") <i class="fas fa-sign-in ml-1"></i></button>
+                                    <button class="btn btn-info"> @Html.ActionLink("Log In", "MainMenu", "VistasHtml") <i class="fas fa-sign-in ml-1"></i></button>
                                 </div>
                             </div>
                             <!--Footer-->
@@ -565,15 +569,16 @@
             </div>
         </div>
     </div>
-    <nav class="mb-1 navbar navbar-expand-lg navbar-dark secondary-color lighten-1">
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark   lighten-1" style="background-color:#141414">
+
         <a class="navbar-brand" href="#" data-toggle="modal" data-target="#modalContactForm">Contact Us/</a><span class="navbar-brand">Follow:</span>
         <a class="nav-link" href="#"><span class="icon icon-instagram"></span></a>
 
         <a class="nav-link" href="#"><span class="icon icon-facebook"></span></a>
 
-        <a class="nav-link" href="#"><span class="icon icon-twitter"></span></a>
+        <a class="nav-link" href="#"><span class="icon icon-gmail"></span></a>
 
-        <a class="nav-link" href="#"><span class="icon icon-telegram"></span></a>
+        <a class="nav-link" href="#"><span class="icon icon-tripadvisor"></span></a>
 
         <a class="nav-link" href="#"><span class="icon icon-youtube"></span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
@@ -584,19 +589,23 @@
 
             <ul class="navbar-nav ml-auto nav-flex-icons">
                 <li class="nav-item avatar dropdown">
-                    <a class="nav-link" href="#">Tel: 8888-9999     |</a>
+                    <a class="nav-link" href="#">Tel: +506 60999337     |</a>
 
                 </li>
                 <li class="nav-item avatar dropdown">
-                    <a class="nav-link" href="#">E-mail:Example@org.com</a>
+                    <a class="nav-link" href="#">E-mail:infohikingguanacaste@gmail.com</a>
 
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
                 <li class="nav-item">
                     <a class="nav-link waves-effect waves-light">
-
-                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-user"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect waves-light">
+                        <i class="fas fa-user-plus"></i>
                     </a>
                 </li>
                 <li class="nav-item avatar dropdown">
@@ -607,12 +616,13 @@
                 </li>
             </ul>
         </div>
+
     </nav>
     <nav class="navbar navbar-expand-lg navbar-light white">
 
         <div class="container">
 
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="@Url.Action("SinLogin","VistasHtml")">
                 <img src="~/Content/Images/Logo.jpg" height="30" alt="mdb logo">
             </a>
 
@@ -628,153 +638,173 @@
                 <!-- Left -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">Hiking Guanacaste</a>
+                        <a class="nav-link waves-effect" href="@Url.Action("SinLogin","VistasHtml")">Hiking Guanacaste</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/angular/" target="_blank">Playa</a>
+                        <a class="nav-link waves-effect" href="#">Econature Experience</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/react/" target="_blank">Montaña</a>
+                        <a class="nav-link waves-effect" href="#">Water Experience</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/vue/" target="_blank">Parques Tematicos</a>
+                        <a class="nav-link waves-effect" href="#">Adventure Experience</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect" href="@Url.Action("IndexLogOut","Colaborador")" target="_blank">Our Team</a>
+                        <a class="nav-link waves-effect" href="#">Other Experiences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect" href="#">Trasport Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect" href="@Url.Action("IndexLogOut","Colaborador")">Abaut Us</a>
                     </li>
                 </ul>
             </div>
 
         </div>
-
+        <img src="" />
     </nav>
- 
-        @RenderBody()
+    <div class="p-5 text-center bg-image"
+         style="
+        background-image: url('https://scontent.fjap1-1.fna.fbcdn.net/v/t1.0-9/132003479_3604900972932807_4860230812453999391_o.jpg?_nc_cat=103&ccb=2&_nc_sid=730e14&_nc_ohc=LU4hFBSk0jQAX_MUI8E&_nc_ht=scontent.fjap1-1.fna&oh=d39849d8a373f565f8862d95a7c9ae29&oe=60093486');
+        height: 480px;
+    ">
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-white">
+                    <h1 class="mb-3">Why Costa Rica?</h1>
+                    <h4 class="mb-3">________</h4>
+                    <a class="btn btn-outline-light btn-lg" href="#!" role="button">Discover Costa Rica</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @RenderBody()
 
-<footer class="page-footer font-small indigo">
+    <footer class="page-footer font-small indigo">
 
-    <!-- Footer Links -->
-    <div class="container text-center text-md-left">
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
 
-        <!-- Grid row -->
-        <div class="row">
+            <!-- Grid row -->
+            <div class="row">
 
-            <!-- Grid column -->
-            <div class="col-md-3 mx-auto">
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
 
-                <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
 
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#!">Very long link 1</a>
-                    </li>
-                    <li>
-                        <a href="#!">Very long link 2</a>
-                    </li>
-                    <li>
-                        <a href="#!">Very long link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Very long link 4</a>
-                    </li>
-                </ul>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">Very long link 1</a>
+                        </li>
+                        <li>
+                            <a href="#!">Very long link 2</a>
+                        </li>
+                        <li>
+                            <a href="#!">Very long link 3</a>
+                        </li>
+                        <li>
+                            <a href="#!">Very long link 4</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
+
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 2</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 3</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 4</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
+
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 2</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 3</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 4</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
+
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 2</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 3</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 4</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
 
             </div>
-            <!-- Grid column -->
-
-            <hr class="clearfix w-100 d-md-none">
-
-            <!-- Grid column -->
-            <div class="col-md-3 mx-auto">
-
-                <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#!">Link 1</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 2</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 4</a>
-                    </li>
-                </ul>
-
-            </div>
-            <!-- Grid column -->
-
-            <hr class="clearfix w-100 d-md-none">
-
-            <!-- Grid column -->
-            <div class="col-md-3 mx-auto">
-
-                <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#!">Link 1</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 2</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 4</a>
-                    </li>
-                </ul>
-
-            </div>
-            <!-- Grid column -->
-
-            <hr class="clearfix w-100 d-md-none">
-
-            <!-- Grid column -->
-            <div class="col-md-3 mx-auto">
-
-                <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#!">Link 1</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 2</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 4</a>
-                    </li>
-                </ul>
-
-            </div>
-            <!-- Grid column -->
+            <!-- Grid row -->
 
         </div>
-        <!-- Grid row -->
+        <!-- Footer Links -->
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+            © 2020 Copyright:
+            <a href="#">Hiking Guanacaste</a>
+        </div>
+        <!-- Copyright -->
 
-    </div>
-    <!-- Footer Links -->
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">
-        © 2020 Copyright:
-        <a href="#">Hiking Guanacaste</a>
-    </div>
-    <!-- Copyright -->
+    </footer>
 
-</footer>
- 
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
