@@ -34,10 +34,10 @@
                         <div id="card-1" class="card card-rotating text-center">
                             <!-- Front Side -->
                             <div class="face front">
- 
+
                                 <!-- Avatar -->
                                 <div class="avatar mx-auto white">
-                                    <img src="@{} " class="rounded-circle img-fluid"
+                                    <img src="@Url.Action("convertirImagen","Colaborador",new { idColaborador = item.idColaborador })"  class="rounded-circle img-fluid"
                                          alt="First sample avatar image">
                                 </div>
                                 <!-- Content -->
@@ -109,7 +109,10 @@
                     <!-- Rotating card -->
 
                 </div>
+                <img src="@item.fotoPerfil"/>
             }
         </div>
     </section>
 </div>
+
+

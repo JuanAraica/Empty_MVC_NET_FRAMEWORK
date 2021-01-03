@@ -8,6 +8,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Plantilla.Models;
+using System.IO;
+using ImTools;
 
 namespace Plantilla.Controllers
 {
@@ -50,21 +52,62 @@ namespace Plantilla.Controllers
             return View();
         }
 
-        // POST: Colaborador/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+
+        public ActionResult convertirImagen(int idColaborador)
+        {
+            var fotoP = db.Colaborador .Where(z => z.idColaborador == idColaborador).FirstOrDefault();
+            return File(fotoP.fotoPerfil, "image/jpeg");
+        }
+
+
+        public ActionResult Nuevo()
+        {
+            return View();
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public  ActionResult Create( Colaborador oColaborador)
+        public ActionResult Nuevo(Colaborador oColaborador, HttpPostedFileBase fotoP)
         {
             if (ModelState.IsValid)
             {
+
+                if (fotoP != null && fotoP.ContentLength > 0)
+                {
+                    byte[] imageData = null;
+                    using (var binaryReader = new BinaryReader(fotoP.InputStream))
+                    {
+                        imageData = binaryReader.ReadBytes(fotoP.ContentLength);
+                    }
+                    //setear la imagen a la entidad que se creara
+                    oColaborador.fotoPerfil = imageData;
+                }
+
+
                 db.Colaborador.Add(oColaborador);
                 db.SaveChanges();
                 return View();
             }
 
-            return View( );
+            return View();
+        }
+
+
+        // POST: Colaborador/Create
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
+        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Colaborador oColaborador )
+        {
+            if (ModelState.IsValid)
+            {
+ 
+                db.Colaborador.Add(oColaborador);
+                db.SaveChanges();
+                return View();
+            }
+
+            return View();
         }
 
         // GET: Colaborador/Edit/5
@@ -132,5 +175,6 @@ namespace Plantilla.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }

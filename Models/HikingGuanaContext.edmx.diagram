@@ -8,7 +8,6 @@
         <EntityTypeShape EntityType="DB_A6C1FF_HikingGuanacasteModel.Actividad" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_A6C1FF_HikingGuanacasteModel.Atraccion" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_A6C1FF_HikingGuanacasteModel.Clientes" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_A6C1FF_HikingGuanacasteModel.Colaborador" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_A6C1FF_HikingGuanacasteModel.Cupon" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_A6C1FF_HikingGuanacasteModel.Destino" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_A6C1FF_HikingGuanacasteModel.Gallery" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
@@ -29,6 +28,7 @@
         <AssociationConnector Association="DB_A6C1FF_HikingGuanacasteModel.Fk_Servicio_TablaActividades" ManuallyRouted="false" />
         <AssociationConnector Association="DB_A6C1FF_HikingGuanacasteModel.Fk_Servicio_TablaDestinos" ManuallyRouted="false" />
         <AssociationConnector Association="DB_A6C1FF_HikingGuanacasteModel.Fk_Servicio_Tour" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB_A6C1FF_HikingGuanacasteModel.Colaborador" Width="1.5" PointX="7.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

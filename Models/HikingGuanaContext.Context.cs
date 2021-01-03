@@ -28,7 +28,6 @@ namespace Plantilla.Models
         public virtual DbSet<Actividad> Actividad { get; set; }
         public virtual DbSet<Atraccion> Atraccion { get; set; }
         public virtual DbSet<Clientes> Clientes { get; set; }
-        public virtual DbSet<Colaborador> Colaborador { get; set; }
         public virtual DbSet<Cupon> Cupon { get; set; }
         public virtual DbSet<Destino> Destino { get; set; }
         public virtual DbSet<Gallery> Gallery { get; set; }
@@ -42,5 +41,6 @@ namespace Plantilla.Models
         public virtual DbSet<TablaToures> TablaToures { get; set; }
         public virtual DbSet<Tour> Tour { get; set; }
         public virtual DbSet<Transporte> Transporte { get; set; }
+        public virtual DbSet<Colaborador> Colaborador { get; set; }
     }
 }

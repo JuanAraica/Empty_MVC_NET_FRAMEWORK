@@ -11,7 +11,8 @@ namespace Plantilla.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Colaborador
     {
         public short idColaborador { get; set; }
@@ -25,5 +26,8 @@ namespace Plantilla.Models
         public string email { get; set; }
         public string licencia { get; set; }
         public string tipoColaborador { get; set; }
+        [DataType(DataType.Upload)]
+        public byte[] fotoPerfil { get; set; }
+
     }
 }

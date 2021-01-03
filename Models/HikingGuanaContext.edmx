@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DB_A6C1FF_HikingGuanacasteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DB_A6C1FF_HikingGuanacasteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Actividad">
           <Key>
             <PropertyRef Name="idActividad" />
@@ -60,6 +60,7 @@
           <Property Name="email" Type="varchar" MaxLength="100" />
           <Property Name="licencia" Type="varchar" MaxLength="25" />
           <Property Name="tipoColaborador" Type="varchar" MaxLength="20" />
+          <Property Name="fotoPerfil" Type="image" />
         </EntityType>
         <EntityType Name="Cupon">
           <Key>
@@ -351,8 +352,7 @@
             <End Role="Servicio" EntitySet="Servicio" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_A6C1FF_HikingGuanacasteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -396,22 +396,6 @@
           <Property Name="tarjeta" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="token" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Servicio" Relationship="Self.Fk_Servicio_Cliente" FromRole="Clientes" ToRole="Servicio" />
-        </EntityType>
-        <EntityType Name="Colaborador">
-          <Key>
-            <PropertyRef Name="idColaborador" />
-          </Key>
-          <Property Name="idColaborador" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CedColaborador" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="apellido1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="apellido2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="idiomas" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="nacionalidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="licencia" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="tipoColaborador" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Cupon">
           <Key>
@@ -673,7 +657,6 @@
           <EntitySet Name="Actividad" EntityType="Self.Actividad" />
           <EntitySet Name="Atraccion" EntityType="Self.Atraccion" />
           <EntitySet Name="Clientes" EntityType="Self.Clientes" />
-          <EntitySet Name="Colaborador" EntityType="Self.Colaborador" />
           <EntitySet Name="Cupon" EntityType="Self.Cupon" />
           <EntitySet Name="Destino" EntityType="Self.Destino" />
           <EntitySet Name="Gallery" EntityType="Self.Gallery" />
@@ -715,7 +698,25 @@
             <End Role="Tour" EntitySet="Tour" />
             <End Role="Servicio" EntitySet="Servicio" />
           </AssociationSet>
+          <EntitySet Name="Colaborador" EntityType="DB_A6C1FF_HikingGuanacasteModel.Colaborador" />
         </EntityContainer>
+        <EntityType Name="Colaborador">
+          <Key>
+            <PropertyRef Name="idColaborador" />
+          </Key>
+          <Property Name="idColaborador" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CedColaborador" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="apellido1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="apellido2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="idiomas" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nacionalidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="licencia" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="tipoColaborador" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fotoPerfil" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -762,23 +763,6 @@
                 <ScalarProperty Name="contraesnia" ColumnName="contraesnia" />
                 <ScalarProperty Name="tarjeta" ColumnName="tarjeta" />
                 <ScalarProperty Name="token" ColumnName="token" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Colaborador">
-            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Colaborador">
-              <MappingFragment StoreEntitySet="Colaborador">
-                <ScalarProperty Name="idColaborador" ColumnName="idColaborador" />
-                <ScalarProperty Name="CedColaborador" ColumnName="CedColaborador" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
-                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
-                <ScalarProperty Name="idiomas" ColumnName="idiomas" />
-                <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="licencia" ColumnName="licencia" />
-                <ScalarProperty Name="tipoColaborador" ColumnName="tipoColaborador" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -951,6 +935,24 @@
                 <ScalarProperty Name="color" ColumnName="color" />
                 <ScalarProperty Name="colaboradorChofer" ColumnName="colaboradorChofer" />
                 <ScalarProperty Name="colaboradorResponsable" ColumnName="colaboradorResponsable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Colaborador">
+            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Colaborador">
+              <MappingFragment StoreEntitySet="Colaborador">
+                <ScalarProperty Name="fotoPerfil" ColumnName="fotoPerfil" />
+                <ScalarProperty Name="tipoColaborador" ColumnName="tipoColaborador" />
+                <ScalarProperty Name="licencia" ColumnName="licencia" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+                <ScalarProperty Name="idiomas" ColumnName="idiomas" />
+                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="CedColaborador" ColumnName="CedColaborador" />
+                <ScalarProperty Name="idColaborador" ColumnName="idColaborador" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
