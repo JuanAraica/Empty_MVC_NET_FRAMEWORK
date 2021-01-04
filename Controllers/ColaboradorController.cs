@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using Plantilla.Models;
 using System.IO;
 using ImTools;
+using System.Web.Helpers;
 
 namespace Plantilla.Controllers
 {
@@ -21,6 +22,16 @@ namespace Plantilla.Controllers
         public async Task<ActionResult> Index()
         {
             return View(await db.Colaborador.ToListAsync());
+        }
+ 
+        public String ObtenerImagen(int idColaborador)
+        {
+            String Stringimagen = db.Colaborador.Find(idColaborador).Image;
+            if (Stringimagen!=null)
+            {
+                return Stringimagen;
+            }
+            return Stringimagen;
         }
         public async Task<ActionResult> IndexLogOut()
         {
@@ -53,11 +64,11 @@ namespace Plantilla.Controllers
         }
 
 
-        public ActionResult convertirImagen(int idColaborador)
-        {
-            var fotoP = db.Colaborador .Where(z => z.idColaborador == idColaborador).FirstOrDefault();
-            return File(fotoP.fotoPerfil, "image/jpeg");
-        }
+        //public ActionResult convertirImagen(int idColaborador)
+        //{
+        //    var fotoP = db.Colaborador .Where(z => z.idColaborador == idColaborador).FirstOrDefault();
+        //    return File(fotoP.fotoPerfil, "image/jpeg");
+        //}
 
 
         public ActionResult Nuevo()
@@ -97,14 +108,25 @@ namespace Plantilla.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Colaborador oColaborador )
+        public ActionResult Create([Bind(Include = "idColaborador,CedColaborador,nombre,apellido1,apellido2,idiomas,nacionalidad,telefono,email,licencia,tipoColaborador")] Colaborador oColaborador, HttpPostedFileBase fotoPerfil)
         {
+            if (fotoPerfil != null && fotoPerfil.ContentLength > 0)
+            {
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(fotoPerfil.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(fotoPerfil.ContentLength);
+                }
+                //setear la imagen a la entidad que se creara
+                oColaborador.fotoPerfil = imageData;
+            }
             if (ModelState.IsValid)
             {
  
                 db.Colaborador.Add(oColaborador);
                 db.SaveChanges();
-                return View();
+                ModelState.Clear();
+                return View("IndexAdmin");
             }
 
             return View();
@@ -175,6 +197,17 @@ namespace Plantilla.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        public ActionResult convertirImagen(int idColaborador)
+        {
+
+            var fotoPerfil = db.Colaborador.Where(z => z.idColaborador == idColaborador).FirstOrDefault();
+ 
+            return File(fotoPerfil.fotoPerfil, "image/jpeg");
+        }
+
+
 
     }
 }

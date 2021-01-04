@@ -61,6 +61,7 @@
           <Property Name="licencia" Type="varchar" MaxLength="25" />
           <Property Name="tipoColaborador" Type="varchar" MaxLength="20" />
           <Property Name="fotoPerfil" Type="image" />
+          <Property Name="Image" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="Cupon">
           <Key>
@@ -716,6 +717,7 @@
           <Property Name="licencia" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="tipoColaborador" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="fotoPerfil" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -941,6 +943,7 @@
           <EntitySetMapping Name="Colaborador">
             <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Colaborador">
               <MappingFragment StoreEntitySet="Colaborador">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="fotoPerfil" ColumnName="fotoPerfil" />
                 <ScalarProperty Name="tipoColaborador" ColumnName="tipoColaborador" />
                 <ScalarProperty Name="licencia" ColumnName="licencia" />
