@@ -43,15 +43,8 @@
                                     </h4>
                                     <p class="font-weight-bold dark-grey-text">@Html.DisplayFor(modelItem => item.tipoColaborador)</p>
                                     <!-- Triggering button -->
-                                    <a class="rotate-btn grey-text" data-card="card-1">
-                                        <i class="fas fa-redo-alt grey-text"></i> Lenguages: @Html.DisplayFor(modelItem => item.idiomas)
-                                    </a>
-                                    <a class="rotate-btn grey-text" data-card="card-1">
-                                        <i class="fas fa-redo-alt grey-text"></i> E-mail: @Html.DisplayFor(modelItem => item.email)
-                                    </a>
-                                    <a class="rotate-btn grey-text" data-card="card-1">
-                                        <i class="fas fa-redo-alt grey-text"></i> Phone: @Html.DisplayFor(modelItem => item.telefono)
-                                    </a>
+ 
+ 
                                 </div>
                             </div>
                             <!-- Front Side -->
@@ -78,13 +71,13 @@
                                                     <h4 class="panel-title">
                                                         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                             <i class="more-less glyphicon glyphicon-plus"></i>
-                                                            Collapsible Group Item #1
+                                                            Lenguages
                                                         </a>
                                                     </h4>
                                                 </div>
                                                 <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                                                     <div class="panel-body">
-                                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                        @Html.DisplayFor(modelItem => item.idiomas)
                                                     </div>
                                                 </div>
                                             </div>
@@ -94,13 +87,13 @@
                                                     <h4 class="panel-title">
                                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                                             <i class="more-less glyphicon glyphicon-plus"></i>
-                                                            Collapsible Group Item #2
+                                                            E-mail
                                                         </a>
                                                     </h4>
                                                 </div>
                                                 <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                                     <div class="panel-body">
-                                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                        @Html.DisplayFor(modelItem => item.email)
                                                     </div>
                                                 </div>
                                             </div>
@@ -110,13 +103,13 @@
                                                     <h4 class="panel-title">
                                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                                             <i class="more-less glyphicon glyphicon-plus"></i>
-                                                            Collapsible Group Item #3
+                                                            Phone
                                                         </a>
                                                     </h4>
                                                 </div>
                                                 <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                                                     <div class="panel-body">
-                                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                        @Html.DisplayFor(modelItem => item.telefono)
                                                     </div>
                                                 </div>
                                             </div>

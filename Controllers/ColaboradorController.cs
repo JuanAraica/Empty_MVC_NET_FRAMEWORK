@@ -125,8 +125,7 @@ namespace Plantilla.Controllers
  
                 db.Colaborador.Add(oColaborador);
                 db.SaveChanges();
-                ModelState.Clear();
-                return View("IndexAdmin");
+                return View();
             }
 
             return View();
@@ -201,9 +200,7 @@ namespace Plantilla.Controllers
 
         public ActionResult convertirImagen(int idColaborador)
         {
-
             var fotoPerfil = db.Colaborador.Where(z => z.idColaborador == idColaborador).FirstOrDefault();
- 
             return File(fotoPerfil.fotoPerfil, "image/jpeg");
         }
 
