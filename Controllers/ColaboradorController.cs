@@ -108,7 +108,7 @@ namespace Plantilla.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idColaborador,CedColaborador,nombre,apellido1,apellido2,idiomas,nacionalidad,telefono,email,licencia,tipoColaborador")] Colaborador oColaborador, HttpPostedFileBase fotoPerfil)
+        public async Task<ActionResult> Create([Bind(Include = "idColaborador,CedColaborador,nombre,apellido1,apellido2,idiomas,nacionalidad,telefono,email,licencia,tipoColaborador")] Colaborador oColaborador, HttpPostedFileBase fotoPerfil)
         {
             if (fotoPerfil != null && fotoPerfil.ContentLength > 0)
             {
@@ -124,11 +124,11 @@ namespace Plantilla.Controllers
             {
  
                 db.Colaborador.Add(oColaborador);
-                db.SaveChanges();
-                return View();
+                await db.SaveChangesAsync();
+                return RedirectToAction("IndexAdmin");
             }
 
-            return View();
+            return View(oColaborador);
         }
 
         // GET: Colaborador/Edit/5

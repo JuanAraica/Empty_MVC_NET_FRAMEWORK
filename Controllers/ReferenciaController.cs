@@ -25,6 +25,7 @@ namespace Plantilla.Controllers
             return View(await db.Referencia.ToListAsync());
         }
 
+
         // GET: Referencia/Details/5
         public async Task<ActionResult> Details(short? id)
         {

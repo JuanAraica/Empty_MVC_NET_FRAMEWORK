@@ -5,10 +5,8 @@
 }
 
 <h2>Usuarios Registrados</h2>
+@Html.Action("Create", "Clientes")
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -30,6 +28,9 @@
             @Html.DisplayNameFor(model => model.direccion)
         </th>
         <th>
+            Foto
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.telefono)
         </th>
 
@@ -38,34 +39,37 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.apellido1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.apellido2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.pais)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.direccion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.telefono)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.idCliente }) |
-                @Html.ActionLink("Details", "Details", new { id = item.idCliente }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.idCliente })
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.apellido1)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.apellido2)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.pais)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.direccion)
+    </td>
+    <td>
+        <img width="50" height="50" src="@Url.Action("convertirImagen", "Clientes", new {idCliente = item.idCliente})" />
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.telefono)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.idCliente }) |
+        @Html.ActionLink("Details", "Details", new { id = item.idCliente }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.idCliente })
+    </td>
+</tr>
     }
 
 </table>

@@ -74,7 +74,7 @@
 
 
 
-    <nav class="mb-1 navbar navbar-expand-lg navbar-dark  lighten-1"  style="background-color:#141414">
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark  lighten-1" style="background-color:#141414">
         <a class="navbar-brand" href="#" data-toggle="modal" data-target="#modalContactForm">Contact Us/</a><span class="navbar-brand">Follow:</span>
         <a class="nav-link" href="#"><span class="icon icon-instagram"></span></a>
 
@@ -112,7 +112,7 @@
                 <li class="nav-item avatar dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0"
+                        <img width="50" height="50" src="https://scontent.fjap1-1.fna.fbcdn.net/v/t1.0-9/24862261_1504769012891994_2659925346408583868_n.jpg?_nc_cat=109&ccb=2&_nc_sid=174925&_nc_ohc=28hofXeOwk8AX-4TUAU&_nc_ht=scontent.fjap1-1.fna&oh=0ee8a6791b6bd1f540bc6846c590b399&oe=6017FD69" class="rounded-circle z-depth-0"
                              alt="avatar image">
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
@@ -126,11 +126,11 @@
             </ul>
         </div>
     </nav>
-    <nav class="navbar navbar-expand-lg navbar-light white" >
+    <nav class="navbar navbar-expand-lg navbar-light white">
 
         <div class="container">
 
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="@Url.Action("SinLogin","VistasHtml")">
                 <img src="~/Content/Images/Logo.jpg" height="30" alt="mdb logo">
             </a>
 
@@ -146,155 +146,158 @@
                 <!-- Left -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link waves-effect" href="#" target="_blank">Hiking Guanacaste</a>
+                        <a class="nav-link waves-effect" href="@Url.Action("SinLogin","VistasHtml")">Hiking Guanacaste</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect" href="#" target="_blank">Playa</a>
+                        <a class="nav-link waves-effect" href="#">Econature Experience</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect" href="#" target="_blank">Montaña</a>
+                        <a class="nav-link waves-effect" href="#">Water Experience</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect" href="#" target="_blank">Parques Tematicos</a>
+                        <a class="nav-link waves-effect" href="#">Adventure Experience</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect" href="#" target="_blank">Experiencia Extrema</a>
+                        <a class="nav-link waves-effect" href="#">Other Experiences</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect" href="@Url.Action("Index","Colaborador")" target="_blank">Our Team</a>
+                        <a class="nav-link waves-effect" href="#">Trasport Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect" href="@Url.Action("IndexLogOut","Colaborador")">About Us</a>
                     </li>
                 </ul>
             </div>
 
         </div>
-
+        <img src="" />
     </nav>
 
-        @RenderBody()
-        <hr />
-        <footer class="page-footer font-small indigo">
+    @RenderBody()
+    <hr />
+    <footer class="page-footer font-small indigo">
 
-            <!-- Footer Links -->
-            <div class="container text-center text-md-left">
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
 
-                <!-- Grid row -->
-                <div class="row">
+            <!-- Grid row -->
+            <div class="row">
 
-                    <!-- Grid column -->
-                    <div class="col-md-3 mx-auto">
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
 
-                        <!-- Links -->
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
 
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!">Very long link 1</a>
-                            </li>
-                            <li>
-                                <a href="#!">Very long link 2</a>
-                            </li>
-                            <li>
-                                <a href="#!">Very long link 3</a>
-                            </li>
-                            <li>
-                                <a href="#!">Very long link 4</a>
-                            </li>
-                        </ul>
-
-                    </div>
-                    <!-- Grid column -->
-
-                    <hr class="clearfix w-100 d-md-none">
-
-                    <!-- Grid column -->
-                    <div class="col-md-3 mx-auto">
-
-                        <!-- Links -->
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!">Link 1</a>
-                            </li>
-                            <li>
-                                <a href="#!">Link 2</a>
-                            </li>
-                            <li>
-                                <a href="#!">Link 3</a>
-                            </li>
-                            <li>
-                                <a href="#!">Link 4</a>
-                            </li>
-                        </ul>
-
-                    </div>
-                    <!-- Grid column -->
-
-                    <hr class="clearfix w-100 d-md-none">
-
-                    <!-- Grid column -->
-                    <div class="col-md-3 mx-auto">
-
-                        <!-- Links -->
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!">Link 1</a>
-                            </li>
-                            <li>
-                                <a href="#!">Link 2</a>
-                            </li>
-                            <li>
-                                <a href="#!">Link 3</a>
-                            </li>
-                            <li>
-                                <a href="#!">Link 4</a>
-                            </li>
-                        </ul>
-
-                    </div>
-                    <!-- Grid column -->
-
-                    <hr class="clearfix w-100 d-md-none">
-
-                    <!-- Grid column -->
-                    <div class="col-md-3 mx-auto">
-
-                        <!-- Links -->
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!">Link 1</a>
-                            </li>
-                            <li>
-                                <a href="#!">Link 2</a>
-                            </li>
-                            <li>
-                                <a href="#!">Link 3</a>
-                            </li>
-                            <li>
-                                <a href="#!">Link 4</a>
-                            </li>
-                        </ul>
-
-                    </div>
-                    <!-- Grid column -->
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">Very long link 1</a>
+                        </li>
+                        <li>
+                            <a href="#!">Very long link 2</a>
+                        </li>
+                        <li>
+                            <a href="#!">Very long link 3</a>
+                        </li>
+                        <li>
+                            <a href="#!">Very long link 4</a>
+                        </li>
+                    </ul>
 
                 </div>
-                <!-- Grid row -->
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
+
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 2</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 3</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 4</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
+
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 2</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 3</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 4</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
+
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 2</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 3</a>
+                        </li>
+                        <li>
+                            <a href="#!">Link 4</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
 
             </div>
-            <!-- Footer Links -->
-            <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">
-                © 2020 Copyright:
-                <a href="#">Hiking Guanacaste</a>
-            </div>
-            <!-- Copyright -->
+            <!-- Grid row -->
 
-        </footer>
+        </div>
+        <!-- Footer Links -->
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+            © 2020 Copyright:
+            <a href="#">Hiking Guanacaste</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

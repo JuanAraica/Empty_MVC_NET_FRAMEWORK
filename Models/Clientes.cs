@@ -31,6 +31,7 @@ namespace Plantilla.Models
         public string contraesnia { get; set; }
         public string tarjeta { get; set; }
         public string token { get; set; }
+        public byte[] foto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Servicio> Servicio { get; set; }

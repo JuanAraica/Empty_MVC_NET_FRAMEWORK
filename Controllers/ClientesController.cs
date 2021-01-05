@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Plantilla.Models;
+using System.IO;
 
 namespace Plantilla.Controllers
 {
@@ -20,6 +21,14 @@ namespace Plantilla.Controllers
         {
             return View(await db.Clientes.ToListAsync());
         }
+
+
+        public ActionResult convertirImagen(int idCliente)
+        {
+            var fotoPerfil = db.Clientes.Where(z => z.idCliente == idCliente).FirstOrDefault();
+            return File(fotoPerfil.foto, "image/jpeg");
+        }
+
 
         // GET: Clientes/Details/5
         public async Task<ActionResult> Details(short? id)
@@ -47,8 +56,18 @@ namespace Plantilla.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "idCliente,email,nombre,apellido1,apellido2,pais,direccion,telefono,contraesnia,tarjeta,token")] Clientes clientes)
+        public async Task<ActionResult> Create([Bind(Include = "idCliente,email,nombre,apellido1,apellido2,pais,direccion,telefono,contraesnia,tarjeta,token")] Clientes clientes, HttpPostedFileBase foto)
         {
+            if (foto != null && foto.ContentLength > 0)
+            {
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(foto.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(foto.ContentLength);
+                }
+                //setear la imagen a la entidad que se creara
+                clientes.foto = imageData;
+            }
             if (ModelState.IsValid)
             {
                 db.Clientes.Add(clientes);
