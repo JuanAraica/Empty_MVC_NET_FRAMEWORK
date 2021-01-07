@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Plantilla.Models;
+using System.IO;
 
 namespace Plantilla.Controllers
 {
@@ -19,6 +20,10 @@ namespace Plantilla.Controllers
         public async Task<ActionResult> Index()
         {
             return View(await db.Tour.ToListAsync());
+        }
+        public ActionResult Index2()
+        {
+            return View( db.Tour.ToList());
         }
         public async Task<ActionResult> IndexAdmin()
         {
@@ -51,13 +56,24 @@ namespace Plantilla.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "idTour,idTabladestinos,descripcion,lugarSalida,fechaCheckIn,fechaCheckOut,alimentacion,horaSalida,horaRegreso,precio,idGallery")] Tour tour)
+        public async Task<ActionResult> Create([Bind(Include = "idTour,idTabladestinos,descripcion,lugarSalida,fechaCheckIn,fechaCheckOut,alimentacion,horaSalida,horaRegreso,precio,idGallery,nombreTour")] Tour tour, HttpPostedFileBase photo)
         {
+            if (photo != null && photo.ContentLength > 0)
+            {
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(photo.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(photo.ContentLength);
+                }
+                //setear la imagen a la entidad que se creara
+                tour.photo = imageData;
+            }
+
             if (ModelState.IsValid)
             {
                 db.Tour.Add(tour);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexAdmin");
             }
 
             return View(tour);
@@ -83,7 +99,7 @@ namespace Plantilla.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "idTour,idTabladestinos,descripcion,lugarSalida,fechaCheckIn,fechaCheckOut,alimentacion,horaSalida,horaRegreso,precio,idGallery")] Tour tour)
+        public async Task<ActionResult> Edit([Bind(Include = "idTour,idTabladestinos,descripcion,lugarSalida,fechaCheckIn,fechaCheckOut,alimentacion,horaSalida,horaRegreso,precio,idGallery,nombreTour")] Tour tour)
         {
             if (ModelState.IsValid)
             {
@@ -127,6 +143,12 @@ namespace Plantilla.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult convertirImagen(int idTour)
+        {
+            var photo = db.Tour.Where(z => z.idTour == idTour).FirstOrDefault();
+            return File(photo.photo, "image/jpeg");
         }
     }
 }

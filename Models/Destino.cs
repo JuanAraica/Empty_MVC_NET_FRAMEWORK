@@ -20,5 +20,6 @@ namespace Plantilla.Models
         public Nullable<short> idTablaActividades { get; set; }
         public Nullable<short> idTablaAtracciones { get; set; }
         public string coordenadas { get; set; }
+        public Nullable<short> idGallery { get; set; }
     }
 }

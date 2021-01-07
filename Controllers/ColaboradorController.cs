@@ -57,12 +57,6 @@ namespace Plantilla.Controllers
             return View(colaborador);
         }
 
-        // GET: Colaborador/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
 
         //public ActionResult convertirImagen(int idColaborador)
         //{
@@ -99,6 +93,12 @@ namespace Plantilla.Controllers
                 return View();
             }
 
+            return View();
+        }
+
+        // GET: Colaborador/Create
+        public ActionResult Create()
+        {
             return View();
         }
 

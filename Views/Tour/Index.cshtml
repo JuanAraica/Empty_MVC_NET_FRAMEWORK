@@ -1,82 +1,90 @@
 ﻿@model IEnumerable<Plantilla.Models.Tour>
 
 
+@{
+    Layout = "~/Views/Shared/_LayoutDentro.cshtml";
+}
 
-<h2>Toures Registrados</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
 
-        <th>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lugarSalida)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fechaCheckIn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fechaCheckOut)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.alimentacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.horaSalida)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.horaRegreso)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.precio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idGallery)
-        </th>
-        <th></th>
-    </tr>
+@foreach (var item in Model)
+{
 
-    @foreach (var item in Model)
-    {
-        <tr>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.lugarSalida)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.fechaCheckIn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.fechaCheckOut)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.alimentacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.horaSalida)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.horaRegreso)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.precio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.idGallery)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.idTour }) |
-                @Html.ActionLink("Details", "Details", new { id = item.idTour }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.idTour })
-            </td>
-        </tr>
-    }
 
-</table>
+    <div class="infocardContainer">
+        <div id="main">
+            <img src="@Url.Action("convertirImagen", "Tour", new {idTour = item.idTour})"></img>
+        </div>
+        <div id="textbois">
+            <h2>Tour</h2>
+            <h4>@Html.DisplayFor(modelItem => item.descripcion)</h4>
+            <a href="#">Check-In / Check-Out</a>
+            <a href="#">@Html.DisplayFor(modelItem => item.fechaCheckIn)-@Html.DisplayFor(modelItem => item.horaSalida) / @Html.DisplayFor(modelItem => item.fechaCheckOut)-@Html.DisplayFor(modelItem => item.horaRegreso)</a>
+            <div id="hotlinks">
+                <a href="https://codepen.io/LIMESTA">
+                    <img id="codepenio" src="https://blog.codepen.io/wp-content/uploads/2012/06/Button-Fill-Black-Small.png" target="_blank"></img>
+                </a>
+                <a href="https://codepen.io/LIMESTA">
+                    <img id="codepenio" src="https://blog.codepen.io/wp-content/uploads/2012/06/Button-Fill-Black-Small.png" target="_blank"></img>
+                </a>
+                <a href="https://codepen.io/LIMESTA">
+                    <img id="codepenio" src="https://blog.codepen.io/wp-content/uploads/2012/06/Button-Fill-Black-Small.png" target="_blank"></img>
+                </a>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

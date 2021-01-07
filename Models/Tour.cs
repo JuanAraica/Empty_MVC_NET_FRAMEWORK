@@ -31,6 +31,8 @@ namespace Plantilla.Models
         public string horaRegreso { get; set; }
         public Nullable<decimal> precio { get; set; }
         public Nullable<short> idGallery { get; set; }
+        public byte[] photo { get; set; }
+        public string nombreTour { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Servicio> Servicio { get; set; }

@@ -499,6 +499,7 @@
     <Content Include="Views\Colaborador\IndexAdmin.cshtml" />
     <Content Include="Views\Colaborador\IndexLogOut.cshtml" />
     <Content Include="Views\Colaborador\Nuevo.cshtml" />
+    <Content Include="Views\Tour\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

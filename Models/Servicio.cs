@@ -32,7 +32,7 @@ namespace Plantilla.Models
         public virtual TablaAtracciones TablaAtracciones { get; set; }
         public virtual TablaActividades TablaActividades { get; set; }
         public virtual TablaDestinos TablaDestinos { get; set; }
-        public virtual Tour Tour { get; set; }
         public virtual Clientes Clientes { get; set; }
+        public virtual Tour Tour { get; set; }
     }
 }

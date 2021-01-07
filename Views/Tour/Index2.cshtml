@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Plantilla.Models.Tour>
+
+
+@{
+    Layout = "~/Views/Shared/_LayoutDentro.cshtml";
+}
+
+
+
+@foreach (var item in Model)
+{
+
+
+
+    <div class="infocardContainer">
+        <div id="main">
+            <img src="@Url.Action("convertirImagen", "Tour", new {idTour = item.idTour})"></img>
+        </div>
+        <div id="textbois">
+            <h2>@Html.DisplayFor(modelItem => item.nombreTour)</h2>
+            <h4>@Html.DisplayFor(modelItem => item.descripcion)</h4>
+            <a href="#">Check-In / Check-Out</a>
+            <a href="#">@Html.DisplayFor(modelItem => item.fechaCheckIn)-@Html.DisplayFor(modelItem => item.horaSalida) / @Html.DisplayFor(modelItem => item.fechaCheckOut)-@Html.DisplayFor(modelItem => item.horaRegreso)</a>
+
+            <a href="@Url.Action("Details","Tour", new {idTour = item.idTour})" class="btn-block">
+                Life the Expirience
+            </a>
+
+        </div>
+    </div>
+
+}
+
+______________________________________________________
+
+@foreach (var item in Model)
+{
+
+
+    <div class="container3">
+
+        <div class="card">
+
+            <div class="face face1">
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                        <img height="200" width="300" src="@Url.Action("convertirImagen", "Tour", new { idTour = item.idTour })" aria-hidden="true" />
+                    </div>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <h3>
+                        <a href="#" target="_blank">@Html.DisplayFor(modelItem => item.nombreTour)</a>
+                    </h3>
+                    <p>@Html.DisplayFor(modelItem => item.descripcion)</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+}

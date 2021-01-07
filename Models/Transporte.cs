@@ -23,5 +23,6 @@ namespace Plantilla.Models
         public string color { get; set; }
         public Nullable<short> colaboradorChofer { get; set; }
         public Nullable<short> colaboradorResponsable { get; set; }
+        public byte[] foto { get; set; }
     }
 }
