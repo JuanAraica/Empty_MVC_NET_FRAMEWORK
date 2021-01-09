@@ -139,6 +139,7 @@
     <Compile Include="Controllers\ColaboradorController.cs" />
     <Compile Include="Controllers\CuponController.cs" />
     <Compile Include="Controllers\DestinoController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReferenciaController.cs" />
     <Compile Include="Controllers\ServicioController.cs" />
@@ -500,6 +501,12 @@
     <Content Include="Views\Colaborador\IndexLogOut.cshtml" />
     <Content Include="Views\Colaborador\Nuevo.cshtml" />
     <Content Include="Views\Tour\Index2.cshtml" />
+    <Content Include="Views\VistasHtml\SelectMarcas.cshtml" />
+    <Content Include="Views\Gallery\Create.cshtml" />
+    <Content Include="Views\Gallery\Delete.cshtml" />
+    <Content Include="Views\Gallery\Details.cshtml" />
+    <Content Include="Views\Gallery\Edit.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

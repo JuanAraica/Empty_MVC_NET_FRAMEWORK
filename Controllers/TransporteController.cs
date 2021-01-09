@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Plantilla.Models;
+using System.IO;
 
 namespace Plantilla.Controllers
 {
@@ -51,26 +52,36 @@ namespace Plantilla.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "idTransporte,tipo,placa,marca,modelo,capacidad,color,colaboradorChofer,colaboradorResponsable")] Transporte transporte)
+        public async Task<ActionResult> Create([Bind(Include = "idTransporte,tipo,placa,marca,modelo,capacidad,color,colaboradorChofer,colaboradorResponsable")] Transporte transporte, HttpPostedFileBase foto)
         {
+            if (foto != null && foto.ContentLength > 0)
+            {
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(foto.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(foto.ContentLength);
+                }
+                //setear la imagen a la entidad que se creara
+                transporte.foto = imageData;
+            }
             if (ModelState.IsValid)
             {
                 db.Transporte.Add(transporte);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexAdmin");
             }
 
             return View(transporte);
         }
 
         // GET: Transporte/Edit/5
-        public async Task<ActionResult> Edit(short? id)
+        public async Task<ActionResult> Edit(short? idTransporte)
         {
-            if (id == null)
+            if (idTransporte == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Transporte transporte = await db.Transporte.FindAsync(id);
+            Transporte transporte = await db.Transporte.FindAsync(idTransporte);
             if (transporte == null)
             {
                 return HttpNotFound();
@@ -95,13 +106,13 @@ namespace Plantilla.Controllers
         }
 
         // GET: Transporte/Delete/5
-        public async Task<ActionResult> Delete(short? id)
+        public async Task<ActionResult> Delete(short? idTransporte)
         {
-            if (id == null)
+            if (idTransporte == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Transporte transporte = await db.Transporte.FindAsync(id);
+            Transporte transporte = await db.Transporte.FindAsync(idTransporte);
             if (transporte == null)
             {
                 return HttpNotFound();
@@ -112,9 +123,9 @@ namespace Plantilla.Controllers
         // POST: Transporte/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(short id)
+        public async Task<ActionResult> DeleteConfirmed(short idTransporte)
         {
-            Transporte transporte = await db.Transporte.FindAsync(id);
+            Transporte transporte = await db.Transporte.FindAsync(idTransporte);
             db.Transporte.Remove(transporte);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
@@ -128,5 +139,12 @@ namespace Plantilla.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult convertirImagen(int idTransporte)
+        {
+            var foto = db.Transporte.Where(z => z.idTransporte == idTransporte).FirstOrDefault();
+            return File(foto.foto, "image/jpeg");
+        }
+
     }
 }

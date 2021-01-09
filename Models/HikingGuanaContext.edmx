@@ -16,6 +16,7 @@
           <Property Name="inglumentaria" Type="varchar" MaxLength="200" />
           <Property Name="requisitos" Type="varchar" MaxLength="200" />
           <Property Name="precioTotalActividad" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="idGallery" Type="smallint" />
         </EntityType>
         <EntityType Name="Atraccion">
           <Key>
@@ -134,6 +135,7 @@
           <Property Name="precioTotalServicio" Type="decimal" Precision="18" Scale="0" />
           <Property Name="impuesto" Type="decimal" Precision="18" Scale="0" />
           <Property Name="comicion" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="idGallery" Type="smallint" />
         </EntityType>
         <EntityType Name="TablaActividades">
           <Key>
@@ -374,6 +376,7 @@
           <Property Name="inglumentaria" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="requisitos" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="precioTotalActividad" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="idGallery" Type="Int16" />
         </EntityType>
         <EntityType Name="Atraccion">
           <Key>
@@ -450,6 +453,7 @@
           <NavigationProperty Name="TablaDestinos" Relationship="Self.Fk_Servicio_TablaDestinos" FromRole="Servicio" ToRole="TablaDestinos" />
           <NavigationProperty Name="Clientes" Relationship="DB_A6C1FF_HikingGuanacasteModel.Fk_Servicio_Cliente" FromRole="Servicio" ToRole="Clientes" />
           <NavigationProperty Name="Tour" Relationship="DB_A6C1FF_HikingGuanacasteModel.Fk_Servicio_Tour" FromRole="Servicio" ToRole="Tour" />
+          <Property Name="idGallery" Type="Int16" />
         </EntityType>
         <EntityType Name="TablaActividades">
           <Key>
@@ -740,6 +744,7 @@
           <EntitySetMapping Name="Actividad">
             <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Actividad">
               <MappingFragment StoreEntitySet="Actividad">
+                <ScalarProperty Name="idGallery" ColumnName="idGallery" />
                 <ScalarProperty Name="idActividad" ColumnName="idActividad" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -808,6 +813,7 @@
           <EntitySetMapping Name="Servicio">
             <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Servicio">
               <MappingFragment StoreEntitySet="Servicio">
+                <ScalarProperty Name="idGallery" ColumnName="idGallery" />
                 <ScalarProperty Name="idServicio" ColumnName="idServicio" />
                 <ScalarProperty Name="idCliente" ColumnName="idCliente" />
                 <ScalarProperty Name="idTablaAtracciones" ColumnName="idTablaAtracciones" />

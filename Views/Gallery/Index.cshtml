@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Plantilla.Models.Gallery>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image6)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image7)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image8)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image9)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            <img width="50" height="50" src="@Url.Action("convertirImagen1", "Gallery", new {idGallery = item.idGallery})" />
+        </td>
+        <td>
+            <img width="50" height="50" src="@Url.Action("convertirImagen2", "Gallery", new {idGallery = item.idGallery})" />
+        </td>
+        <td>
+            <img width="50" height="50" src="@Url.Action("convertirImagen3", "Gallery", new {idGallery = item.idGallery})" />
+        </td>
+        <td>
+            <img width="50" height="50" src="@Url.Action("convertirImagen4", "Gallery", new {idGallery = item.idGallery})" />
+        </td>
+        <td>
+            <img width="50" height="50" src="@Url.Action("convertirImagen5", "Gallery", new {idGallery = item.idGallery})" />
+        </td>
+        <td>
+            <img width="50" height="50" src="@Url.Action("convertirImagen6", "Gallery", new {idGallery = item.idGallery})" />
+        </td>
+        <td>
+            <img width="50" height="50" src="@Url.Action("convertirImagen7", "Gallery", new {idGallery = item.idGallery})" />
+        </td>
+        <td>
+            <img width="50" height="50" src="@Url.Action("convertirImagen8", "Gallery", new {idGallery = item.idGallery})" />
+        </td>
+        <td>
+            <img width="50" height="50" src="@Url.Action("convertirImagen9", "Gallery", new {idGallery = item.idGallery})" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idGallery }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idGallery }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idGallery })
+        </td>
+    </tr>
+}
+
+</table>

@@ -26,6 +26,7 @@ namespace Plantilla.Models
         public Nullable<decimal> precioTotalServicio { get; set; }
         public Nullable<decimal> impuesto { get; set; }
         public Nullable<decimal> comicion { get; set; }
+        public Nullable<short> idGallery { get; set; }
     
         public virtual Cupon Cupon { get; set; }
         public virtual GestionAdmin GestionAdmin { get; set; }

@@ -21,5 +21,6 @@ namespace Plantilla.Models
         public string inglumentaria { get; set; }
         public string requisitos { get; set; }
         public Nullable<decimal> precioTotalActividad { get; set; }
+        public Nullable<short> idGallery { get; set; }
     }
 }

@@ -28,5 +28,9 @@ namespace Plantilla.Controllers
         {
             return View();
         }
+        public ActionResult SelectMarcas()
+        {
+            return View();
+        }
     }
 }

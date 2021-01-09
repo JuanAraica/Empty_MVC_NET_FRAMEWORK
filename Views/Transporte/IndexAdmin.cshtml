@@ -2,71 +2,77 @@
 @{
     Layout = "~/Views/Shared/_LayoutColaboradores.cshtml";
 }
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@Html.Action("Create", "Transporte")
+ 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.tipo)
+            Tipo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.placa)
+            Placa
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.marca)
+            Marca
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.modelo)
+            Modelo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.capacidad)
+            Capacidad
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.color)
+            Color
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.colaboradorChofer)
+            Foto
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.colaboradorResponsable)
+            Chofer
+        </th>
+        <th>
+            Responsable
         </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.tipo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.placa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.marca)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.modelo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.capacidad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.color)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.colaboradorChofer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.colaboradorResponsable)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.idTransporte }) |
-                @Html.ActionLink("Details", "Details", new { id = item.idTransporte }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.idTransporte })
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.tipo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.placa)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.marca)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.modelo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.capacidad)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.color)
+    </td>
+    <td>
+        <img width="50" height="50" src="@Url.Action("convertirImagen", "Transporte", new {idTransporte = item.idTransporte})" />
+    </td>
+    
+    <td>
+        @Html.DisplayFor(modelItem => item.colaboradorChofer)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.colaboradorResponsable)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { idTransporte = item.idTransporte }) |
+        @Html.ActionLink("Details", "Details", new { idTransporte = item.idTransporte }) |
+        @Html.ActionLink("Delete", "Delete", new { idTransporte = item.idTransporte })
+    </td>
+</tr>
     }
 
 </table>
