@@ -260,84 +260,158 @@ namespace Plantilla.Controllers
 
         public ActionResult convertirImagen(int idGallery)
         {
+            try
+            {
             var image1 = db.Gallery.Where(z => z.idGallery == idGallery).FirstOrDefault();
             if (image1 == null)
             {
                 return View();
             }
             return File(image1.image1, "image/jpeg");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+                return View();
+            }
+
         }
         public ActionResult convertirImagen2(int idGallery)
         {
+            try
+            {
             var image2 = db.Gallery.Where(z => z.idGallery == idGallery).FirstOrDefault();
             if (image2 == null)
             {
                 return View();
             }
             return File(image2.image2, "image/jpeg");
-        }
-        public ActionResult convertirImagen3(int idGallery)
-        { 
-            var image3 = db.Gallery.Where(z => z.idGallery == idGallery).FirstOrDefault();
-            if (image3 == null)
+            }
+            catch (Exception ex)
             {
+                ViewBag.ErrorMessage = ex.Message;
                 return View();
             }
-            return File(image3.image3, "image/jpeg");
+
+        }
+        public ActionResult convertirImagen3(int idGallery)
+        {
+            try
+            {
+                var image3 = db.Gallery.Where(z => z.idGallery == idGallery).FirstOrDefault();
+                if (image3 == null)
+                {
+                    return View();
+                }
+                return File(image3.image3, "image/jpeg");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+                return View();
+            }
         }
         public ActionResult convertirImagen4(int idGallery)
         {
-            var image4 = db.Gallery.Where(z => z.idGallery == idGallery).FirstOrDefault();
+            try
+            {
+                var image4 = db.Gallery.Where(z => z.idGallery == idGallery).FirstOrDefault();
             if (image4 == null)
             {
                 return View();
             }
             return File(image4.image4, "image/jpeg");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+                return View();
+            }
         }
         public ActionResult convertirImagen5(int idGallery)
         {
-            var image5 = db.Gallery.Where(z => z.idGallery == idGallery).FirstOrDefault();
+            try
+            {
+                var image5 = db.Gallery.Where(z => z.idGallery == idGallery).FirstOrDefault();
             if (image5 == null)
             {
                 return View();
             }
             return File(image5.image5, "image/jpeg");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+                return View();
+            }
         }
         public ActionResult convertirImagen6(int idGallery)
         {
-            var image6 = db.Gallery.Where(z => z.idGallery == idGallery).FirstOrDefault();
+            try
+            {
+                var image6 = db.Gallery.Where(z => z.idGallery == idGallery).FirstOrDefault();
             if (image6 == null)
             {
                 return View();
             }
             return File(image6.image6, "image/jpeg");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+                return View();
+            }
         }
         public ActionResult convertirImagen7(int idGallery)
         {
-            var image7 = db.Gallery.Where(z => z.idGallery == idGallery).FirstOrDefault();
+            try
+            {
+                var image7 = db.Gallery.Where(z => z.idGallery == idGallery).FirstOrDefault();
             if (image7 == null)
             {
                 return View();
             }
             return File(image7.image7, "image/jpeg");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+                return View();
+            }
         }
         public ActionResult convertirImagen8(int idGallery)
         {
-            var image8 = db.Gallery.Where(z => z.idGallery == idGallery).FirstOrDefault();
+            try
+            {
+                var image8 = db.Gallery.Where(z => z.idGallery == idGallery).FirstOrDefault();
             if (image8 == null)
             {
                 return View();
             }
             return File(image8.image8, "image/jpeg");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+                return View();
+            }
         }
         public ActionResult convertirImagen9(int idGallery)
         {
-            var image9 = db.Gallery.Where(z => z.idGallery == idGallery).FirstOrDefault();
+            try
+            {
+                var image9 = db.Gallery.Where(z => z.idGallery == idGallery).FirstOrDefault();
             if (image9==null)
             {
                 return View();
             }
             return File(image9.image9, "image/jpeg");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+                return View();
+            }
         }
 
     }

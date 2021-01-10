@@ -20,6 +20,10 @@ namespace Plantilla.Controllers
         {
             return View(await db.Destino.ToListAsync());
         }
+        public async Task<ActionResult> DestinysCard()
+        {
+            return View(await db.Destino.ToListAsync());
+        }
         public async Task<ActionResult> IndexAdmin()
         {
             return View(await db.Destino.ToListAsync());

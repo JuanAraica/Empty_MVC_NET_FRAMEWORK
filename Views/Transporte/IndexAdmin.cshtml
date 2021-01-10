@@ -33,7 +33,7 @@
         <th>
             Responsable
         </th>
-        <th></th>
+        <td colspan="3">Elija una Accion a Realizar</td>
     </tr>
 
     @foreach (var item in Model)
@@ -60,17 +60,28 @@
     <td>
         <img width="50" height="50" src="@Url.Action("convertirImagen", "Transporte", new {idTransporte = item.idTransporte})" />
     </td>
-    
+
     <td>
         @Html.DisplayFor(modelItem => item.colaboradorChofer)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.colaboradorResponsable)
     </td>
+ 
     <td>
-        @Html.ActionLink("Edit", "Edit", new { idTransporte = item.idTransporte }) |
-        @Html.ActionLink("Details", "Details", new { idTransporte = item.idTransporte }) |
-        @Html.ActionLink("Delete", "Delete", new { idTransporte = item.idTransporte })
+        <div class="btn btn-dark-green">
+            @Html.ActionLink("Edit", "Edit", new { id = item.idTransporte })
+        </div>
+    </td>
+    <td>
+        <div class="btn btn-yellow">
+            @Html.ActionLink("Details", "Details", new { id = item.idTransporte })
+        </div>
+    </td>
+    <td>
+        <div class="btn btn-danger">
+            @Html.ActionLink("Delete", "Delete", new { id = item.idTransporte })
+        </div>
     </td>
 </tr>
     }

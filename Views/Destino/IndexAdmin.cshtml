@@ -3,52 +3,65 @@
     Layout = "~/Views/Shared/_LayoutColaboradores.cshtml";
 }
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.Action("Create", "Destino")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.tipoDestino)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idTablaActividades)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idTablaAtracciones)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.coordenadas)
-        </th>
-        <th></th>
-    </tr>
-
+<table class="table" width="100%" border="1">
+    <thead align="center">
+        <tr>
+            <th>
+                <strong>Type</strong>
+            </th>
+            <th>
+                <strong>Description</strong>
+            </th>
+            <th>
+                <strong>Activities</strong>
+            </th>
+            <th>
+                <strong>Atractions</strong>
+            </th>
+            <th>
+                <strong>Coordinates</strong>
+            </th>
+            <td colspan="3">Actions</td>
+        </tr>
+    </thead>
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.tipoDestino)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.idTablaActividades)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.idTablaAtracciones)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.coordenadas)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.idDestino }) |
-                @Html.ActionLink("Details", "Details", new { id = item.idDestino }) |
+<tbody align="center">
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipoDestino)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idTablaActividades)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idTablaAtracciones)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.coordenadas)
+        </td>
+        <td>
+            <div class="btn btn-dark-green">
+                @Html.ActionLink("Edit", "Edit", new { id = item.idDestino })
+            </div>
+        </td>
+        <td>
+            <div class="btn btn-yellow">
+                @Html.ActionLink("Details", "Details", new { id = item.idDestino })
+            </div>
+        </td>
+        <td>
+            <div class="btn btn-danger">
                 @Html.ActionLink("Delete", "Delete", new { id = item.idDestino })
-            </td>
-        </tr>
+            </div>
+        </td>
+    </tr>
+</tbody>
     }
 
 </table>
