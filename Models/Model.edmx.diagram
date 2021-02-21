@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="373da8692f154c8eae70bb83d29dd363" Name="Diagram1">
+        <EntityTypeShape EntityType="HikingGuanaDBModel.Actividad" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HikingGuanaDBModel.Atraccion" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HikingGuanaDBModel.Clientes" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HikingGuanaDBModel.Colaborador" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HikingGuanaDBModel.Cupon" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HikingGuanaDBModel.Destino" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HikingGuanaDBModel.Gallery" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HikingGuanaDBModel.GestionAdmin" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HikingGuanaDBModel.in04" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HikingGuanaDBModel.Referencia" Width="1.5" PointX="6.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HikingGuanaDBModel.Servicio" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HikingGuanaDBModel.TablaActividades" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="HikingGuanaDBModel.TablaAtracciones" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HikingGuanaDBModel.TablaColaboradores" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HikingGuanaDBModel.TablaDestinos" Width="1.5" PointX="0.75" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HikingGuanaDBModel.TablaToures" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HikingGuanaDBModel.Tour" Width="1.5" PointX="0.75" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HikingGuanaDBModel.Transporte" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="HikingGuanaDBModel.Fk_Servicio_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="HikingGuanaDBModel.Fk_Servicio_Cupon" ManuallyRouted="false" />
+        <AssociationConnector Association="HikingGuanaDBModel.Fk_Servicio_GestionAdmin" ManuallyRouted="false" />
+        <AssociationConnector Association="HikingGuanaDBModel.Fk_Servicio_Atracciones" ManuallyRouted="false" />
+        <AssociationConnector Association="HikingGuanaDBModel.Fk_Servicio_TablaActividades" ManuallyRouted="false" />
+        <AssociationConnector Association="HikingGuanaDBModel.Fk_Servicio_TablaDestinos" ManuallyRouted="false" />
+        <AssociationConnector Association="HikingGuanaDBModel.Fk_Servicio_Tour" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

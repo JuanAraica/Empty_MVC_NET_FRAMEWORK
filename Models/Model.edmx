@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DB_A6C1FF_HikingGuanacasteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="HikingGuanaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Actividad">
           <Key>
             <PropertyRef Name="idActividad" />
@@ -16,7 +16,6 @@
           <Property Name="inglumentaria" Type="varchar" MaxLength="200" />
           <Property Name="requisitos" Type="varchar" MaxLength="200" />
           <Property Name="precioTotalActividad" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="idGallery" Type="smallint" />
         </EntityType>
         <EntityType Name="Atraccion">
           <Key>
@@ -110,6 +109,19 @@
           <Property Name="idTransporte" Type="smallint" />
           <Property Name="idTablaColaboradores" Type="smallint" />
         </EntityType>
+        <EntityType Name="in04">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoProducto" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Precio" Type="int" />
+          <Property Name="SaldoInventario" Type="varchar" MaxLength="15" />
+          <Property Name="FechaIngreso" Type="varchar" MaxLength="15" />
+          <Property Name="UsuarioIngreso" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDFamilia" Type="int" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <EntityType Name="Referencia">
           <Key>
             <PropertyRef Name="idReferencia" />
@@ -135,7 +147,6 @@
           <Property Name="precioTotalServicio" Type="decimal" Precision="18" Scale="0" />
           <Property Name="impuesto" Type="decimal" Precision="18" Scale="0" />
           <Property Name="comicion" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="idGallery" Type="smallint" />
         </EntityType>
         <EntityType Name="TablaActividades">
           <Key>
@@ -212,8 +223,6 @@
           <Property Name="horaRegreso" Type="varchar" MaxLength="15" />
           <Property Name="precio" Type="decimal" Precision="18" Scale="0" />
           <Property Name="idGallery" Type="smallint" />
-          <Property Name="photo" Type="image" />
-          <Property Name="nombreTour" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="Transporte">
           <Key>
@@ -314,7 +323,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DB_A6C1FF_HikingGuanacasteModelStoreContainer">
+        <EntityContainer Name="HikingGuanaDBModelStoreContainer">
           <EntitySet Name="Actividad" EntityType="Self.Actividad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Atraccion" EntityType="Self.Atraccion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
@@ -323,6 +332,7 @@
           <EntitySet Name="Destino" EntityType="Self.Destino" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gallery" EntityType="Self.Gallery" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GestionAdmin" EntityType="Self.GestionAdmin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="in04" EntityType="Self.in04" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Referencia" EntityType="Self.Referencia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TablaActividades" EntityType="Self.TablaActividades" Schema="dbo" store:Type="Tables" />
@@ -361,10 +371,11 @@
             <End Role="Servicio" EntitySet="Servicio" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DB_A6C1FF_HikingGuanacasteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="HikingGuanaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Actividad">
           <Key>
             <PropertyRef Name="idActividad" />
@@ -376,7 +387,6 @@
           <Property Name="inglumentaria" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="requisitos" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="precioTotalActividad" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="idGallery" Type="Int16" />
         </EntityType>
         <EntityType Name="Atraccion">
           <Key>
@@ -390,6 +400,42 @@
           <Property Name="requisitos" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="precioTotalAtraccion" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="idGallery" Type="Int16" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pais" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="contraesnia" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="tarjeta" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="token" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Servicio" Relationship="Self.Fk_Servicio_Cliente" FromRole="Clientes" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="Colaborador">
+          <Key>
+            <PropertyRef Name="idColaborador" />
+          </Key>
+          <Property Name="idColaborador" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CedColaborador" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="apellido1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="apellido2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="idiomas" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nacionalidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="licencia" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="tipoColaborador" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fotoPerfil" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Cupon">
           <Key>
@@ -412,6 +458,22 @@
           <Property Name="coordenadas" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="idGallery" Type="Int16" />
         </EntityType>
+        <EntityType Name="Gallery">
+          <Key>
+            <PropertyRef Name="idGallery" />
+          </Key>
+          <Property Name="idGallery" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="image1" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="image2" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="image3" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="image4" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="image5" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="image6" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="image7" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="image8" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="image9" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="GestionAdmin">
           <Key>
             <PropertyRef Name="idGestionAdmin" />
@@ -420,6 +482,19 @@
           <Property Name="idTransporte" Type="Int16" />
           <Property Name="idTablaColaboradores" Type="Int16" />
           <NavigationProperty Name="Servicio" Relationship="Self.Fk_Servicio_GestionAdmin" FromRole="GestionAdmin" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="in04">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoProducto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Precio" Type="Int32" />
+          <Property Name="SaldoInventario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="FechaIngreso" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioIngreso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDFamilia" Type="Int32" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Referencia">
           <Key>
@@ -446,14 +521,13 @@
           <Property Name="precioTotalServicio" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="impuesto" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="comicion" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Clientes" Relationship="Self.Fk_Servicio_Cliente" FromRole="Servicio" ToRole="Clientes" />
           <NavigationProperty Name="Cupon" Relationship="Self.Fk_Servicio_Cupon" FromRole="Servicio" ToRole="Cupon" />
           <NavigationProperty Name="GestionAdmin" Relationship="Self.Fk_Servicio_GestionAdmin" FromRole="Servicio" ToRole="GestionAdmin" />
           <NavigationProperty Name="TablaAtracciones" Relationship="Self.Fk_Servicio_Atracciones" FromRole="Servicio" ToRole="TablaAtracciones" />
           <NavigationProperty Name="TablaActividades" Relationship="Self.Fk_Servicio_TablaActividades" FromRole="Servicio" ToRole="TablaActividades" />
           <NavigationProperty Name="TablaDestinos" Relationship="Self.Fk_Servicio_TablaDestinos" FromRole="Servicio" ToRole="TablaDestinos" />
-          <NavigationProperty Name="Clientes" Relationship="DB_A6C1FF_HikingGuanacasteModel.Fk_Servicio_Cliente" FromRole="Servicio" ToRole="Clientes" />
-          <NavigationProperty Name="Tour" Relationship="DB_A6C1FF_HikingGuanacasteModel.Fk_Servicio_Tour" FromRole="Servicio" ToRole="Tour" />
-          <Property Name="idGallery" Type="Int16" />
+          <NavigationProperty Name="Tour" Relationship="Self.Fk_Servicio_Tour" FromRole="Servicio" ToRole="Tour" />
         </EntityType>
         <EntityType Name="TablaActividades">
           <Key>
@@ -518,6 +592,23 @@
           <Property Name="idTour4" Type="Int16" />
           <Property Name="idTour5" Type="Int16" />
         </EntityType>
+        <EntityType Name="Tour">
+          <Key>
+            <PropertyRef Name="idTour" />
+          </Key>
+          <Property Name="idTour" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idTabladestinos" Type="Int16" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="lugarSalida" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaCheckIn" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaCheckOut" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="alimentacion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="horaSalida" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="horaRegreso" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="precio" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="idGallery" Type="Int16" />
+          <NavigationProperty Name="Servicio" Relationship="Self.Fk_Servicio_Tour" FromRole="Tour" ToRole="Servicio" />
+        </EntityType>
         <EntityType Name="Transporte">
           <Key>
             <PropertyRef Name="idTransporte" />
@@ -533,6 +624,18 @@
           <Property Name="colaboradorResponsable" Type="Int16" />
           <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <Association Name="Fk_Servicio_Cliente">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Fk_Servicio_Cupon">
           <End Role="Cupon" Type="Self.Cupon" Multiplicity="0..1" />
           <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
@@ -593,12 +696,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DB_A6C1FF_HikingGuanacasteEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="Fk_Servicio_Tour">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="idTour" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idTablaToures" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HikingGuanaDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Actividad" EntityType="Self.Actividad" />
           <EntitySet Name="Atraccion" EntityType="Self.Atraccion" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+          <EntitySet Name="Colaborador" EntityType="Self.Colaborador" />
           <EntitySet Name="Cupon" EntityType="Self.Cupon" />
           <EntitySet Name="Destino" EntityType="Self.Destino" />
+          <EntitySet Name="Gallery" EntityType="Self.Gallery" />
           <EntitySet Name="GestionAdmin" EntityType="Self.GestionAdmin" />
+          <EntitySet Name="in04" EntityType="Self.in04" />
           <EntitySet Name="Referencia" EntityType="Self.Referencia" />
           <EntitySet Name="Servicio" EntityType="Self.Servicio" />
           <EntitySet Name="TablaActividades" EntityType="Self.TablaActividades" />
@@ -606,7 +725,12 @@
           <EntitySet Name="TablaColaboradores" EntityType="Self.TablaColaboradores" />
           <EntitySet Name="TablaDestinos" EntityType="Self.TablaDestinos" />
           <EntitySet Name="TablaToures" EntityType="Self.TablaToures" />
+          <EntitySet Name="Tour" EntityType="Self.Tour" />
           <EntitySet Name="Transporte" EntityType="Self.Transporte" />
+          <AssociationSet Name="Fk_Servicio_Cliente" Association="Self.Fk_Servicio_Cliente">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
           <AssociationSet Name="Fk_Servicio_Cupon" Association="Self.Fk_Servicio_Cupon">
             <End Role="Cupon" EntitySet="Cupon" />
             <End Role="Servicio" EntitySet="Servicio" />
@@ -627,124 +751,20 @@
             <End Role="TablaDestinos" EntitySet="TablaDestinos" />
             <End Role="Servicio" EntitySet="Servicio" />
           </AssociationSet>
-          <EntitySet Name="Colaborador" EntityType="DB_A6C1FF_HikingGuanacasteModel.Colaborador" />
-          <EntitySet Name="Clientes" EntityType="DB_A6C1FF_HikingGuanacasteModel.Clientes" />
-          <AssociationSet Name="Fk_Servicio_Cliente" Association="DB_A6C1FF_HikingGuanacasteModel.Fk_Servicio_Cliente">
-            <End Role="Clientes" EntitySet="Clientes" />
-            <End Role="Servicio" EntitySet="Servicio" />
-          </AssociationSet>
-          <EntitySet Name="Gallery" EntityType="DB_A6C1FF_HikingGuanacasteModel.Gallery" />
-          <EntitySet Name="Tour" EntityType="DB_A6C1FF_HikingGuanacasteModel.Tour" />
-          <AssociationSet Name="Fk_Servicio_Tour" Association="DB_A6C1FF_HikingGuanacasteModel.Fk_Servicio_Tour">
+          <AssociationSet Name="Fk_Servicio_Tour" Association="Self.Fk_Servicio_Tour">
             <End Role="Tour" EntitySet="Tour" />
             <End Role="Servicio" EntitySet="Servicio" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Colaborador">
-          <Key>
-            <PropertyRef Name="idColaborador" />
-          </Key>
-          <Property Name="idColaborador" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CedColaborador" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="apellido1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="apellido2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="idiomas" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="nacionalidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="licencia" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="tipoColaborador" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="fotoPerfil" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="Clientes">
-          <Key>
-            <PropertyRef Name="idCliente" />
-          </Key>
-          <Property Name="idCliente" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="apellido1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="apellido2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="pais" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="contraesnia" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="tarjeta" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="token" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="Servicio" Relationship="DB_A6C1FF_HikingGuanacasteModel.Fk_Servicio_Cliente" FromRole="Clientes" ToRole="Servicio" />
-        </EntityType>
-        <Association Name="Fk_Servicio_Cliente">
-          <End Type="DB_A6C1FF_HikingGuanacasteModel.Clientes" Role="Clientes" Multiplicity="0..1" />
-          <End Type="DB_A6C1FF_HikingGuanacasteModel.Servicio" Role="Servicio" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Clientes">
-              <PropertyRef Name="idCliente" />
-            </Principal>
-            <Dependent Role="Servicio">
-              <PropertyRef Name="idCliente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Gallery">
-          <Key>
-            <PropertyRef Name="idGallery" />
-          </Key>
-          <Property Name="idGallery" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="image1" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="image2" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="image3" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="image4" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="image5" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="image6" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="image7" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="image8" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="image9" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Tour">
-          <Key>
-            <PropertyRef Name="idTour" />
-          </Key>
-          <Property Name="idTour" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idTabladestinos" Type="Int16" />
-          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="lugarSalida" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="fechaCheckIn" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="fechaCheckOut" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="alimentacion" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="horaSalida" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="horaRegreso" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="precio" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="idGallery" Type="Int16" />
-          <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="nombreTour" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Servicio" Relationship="DB_A6C1FF_HikingGuanacasteModel.Fk_Servicio_Tour" FromRole="Tour" ToRole="Servicio" />
-        </EntityType>
-        <Association Name="Fk_Servicio_Tour">
-          <End Type="DB_A6C1FF_HikingGuanacasteModel.Tour" Role="Tour" Multiplicity="0..1" />
-          <End Type="DB_A6C1FF_HikingGuanacasteModel.Servicio" Role="Servicio" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tour">
-              <PropertyRef Name="idTour" />
-            </Principal>
-            <Dependent Role="Servicio">
-              <PropertyRef Name="idTablaToures" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DB_A6C1FF_HikingGuanacasteModelStoreContainer" CdmEntityContainer="DB_A6C1FF_HikingGuanacasteEntities">
+        <EntityContainerMapping StorageEntityContainer="HikingGuanaDBModelStoreContainer" CdmEntityContainer="HikingGuanaDBEntities">
           <EntitySetMapping Name="Actividad">
-            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Actividad">
+            <EntityTypeMapping TypeName="HikingGuanaDBModel.Actividad">
               <MappingFragment StoreEntitySet="Actividad">
-                <ScalarProperty Name="idGallery" ColumnName="idGallery" />
                 <ScalarProperty Name="idActividad" ColumnName="idActividad" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -756,9 +776,8 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Atraccion">
-            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Atraccion">
+            <EntityTypeMapping TypeName="HikingGuanaDBModel.Atraccion">
               <MappingFragment StoreEntitySet="Atraccion">
-                <ScalarProperty Name="idGallery" ColumnName="idGallery" />
                 <ScalarProperty Name="idAtraccion" ColumnName="idAtraccion" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -766,11 +785,49 @@
                 <ScalarProperty Name="inglumentaria" ColumnName="inglumentaria" />
                 <ScalarProperty Name="requisitos" ColumnName="requisitos" />
                 <ScalarProperty Name="precioTotalAtraccion" ColumnName="precioTotalAtraccion" />
+                <ScalarProperty Name="idGallery" ColumnName="idGallery" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="HikingGuanaDBModel.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="contraesnia" ColumnName="contraesnia" />
+                <ScalarProperty Name="tarjeta" ColumnName="tarjeta" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Colaborador">
+            <EntityTypeMapping TypeName="HikingGuanaDBModel.Colaborador">
+              <MappingFragment StoreEntitySet="Colaborador">
+                <ScalarProperty Name="idColaborador" ColumnName="idColaborador" />
+                <ScalarProperty Name="CedColaborador" ColumnName="CedColaborador" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+                <ScalarProperty Name="idiomas" ColumnName="idiomas" />
+                <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="licencia" ColumnName="licencia" />
+                <ScalarProperty Name="tipoColaborador" ColumnName="tipoColaborador" />
+                <ScalarProperty Name="fotoPerfil" ColumnName="fotoPerfil" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cupon">
-            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Cupon">
+            <EntityTypeMapping TypeName="HikingGuanaDBModel.Cupon">
               <MappingFragment StoreEntitySet="Cupon">
                 <ScalarProperty Name="idCupon" ColumnName="idCupon" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -779,20 +836,37 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Destino">
-            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Destino">
+            <EntityTypeMapping TypeName="HikingGuanaDBModel.Destino">
               <MappingFragment StoreEntitySet="Destino">
-                <ScalarProperty Name="idGallery" ColumnName="idGallery" />
                 <ScalarProperty Name="idDestino" ColumnName="idDestino" />
                 <ScalarProperty Name="tipoDestino" ColumnName="tipoDestino" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="idTablaActividades" ColumnName="idTablaActividades" />
                 <ScalarProperty Name="idTablaAtracciones" ColumnName="idTablaAtracciones" />
                 <ScalarProperty Name="coordenadas" ColumnName="coordenadas" />
+                <ScalarProperty Name="idGallery" ColumnName="idGallery" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gallery">
+            <EntityTypeMapping TypeName="HikingGuanaDBModel.Gallery">
+              <MappingFragment StoreEntitySet="Gallery">
+                <ScalarProperty Name="idGallery" ColumnName="idGallery" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="image1" ColumnName="image1" />
+                <ScalarProperty Name="image2" ColumnName="image2" />
+                <ScalarProperty Name="image3" ColumnName="image3" />
+                <ScalarProperty Name="image4" ColumnName="image4" />
+                <ScalarProperty Name="image5" ColumnName="image5" />
+                <ScalarProperty Name="image6" ColumnName="image6" />
+                <ScalarProperty Name="image7" ColumnName="image7" />
+                <ScalarProperty Name="image8" ColumnName="image8" />
+                <ScalarProperty Name="image9" ColumnName="image9" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GestionAdmin">
-            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.GestionAdmin">
+            <EntityTypeMapping TypeName="HikingGuanaDBModel.GestionAdmin">
               <MappingFragment StoreEntitySet="GestionAdmin">
                 <ScalarProperty Name="idGestionAdmin" ColumnName="idGestionAdmin" />
                 <ScalarProperty Name="idTransporte" ColumnName="idTransporte" />
@@ -800,8 +874,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="in04">
+            <EntityTypeMapping TypeName="HikingGuanaDBModel.in04">
+              <MappingFragment StoreEntitySet="in04">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CodigoProducto" ColumnName="CodigoProducto" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="SaldoInventario" ColumnName="SaldoInventario" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="UsuarioIngreso" ColumnName="UsuarioIngreso" />
+                <ScalarProperty Name="IDFamilia" ColumnName="IDFamilia" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Referencia">
-            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Referencia">
+            <EntityTypeMapping TypeName="HikingGuanaDBModel.Referencia">
               <MappingFragment StoreEntitySet="Referencia">
                 <ScalarProperty Name="idReferencia" ColumnName="idReferencia" />
                 <ScalarProperty Name="idCliente" ColumnName="idCliente" />
@@ -811,9 +899,8 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Servicio">
-            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Servicio">
+            <EntityTypeMapping TypeName="HikingGuanaDBModel.Servicio">
               <MappingFragment StoreEntitySet="Servicio">
-                <ScalarProperty Name="idGallery" ColumnName="idGallery" />
                 <ScalarProperty Name="idServicio" ColumnName="idServicio" />
                 <ScalarProperty Name="idCliente" ColumnName="idCliente" />
                 <ScalarProperty Name="idTablaAtracciones" ColumnName="idTablaAtracciones" />
@@ -830,7 +917,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TablaActividades">
-            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.TablaActividades">
+            <EntityTypeMapping TypeName="HikingGuanaDBModel.TablaActividades">
               <MappingFragment StoreEntitySet="TablaActividades">
                 <ScalarProperty Name="idTablaActividades" ColumnName="idTablaActividades" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -843,7 +930,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TablaAtracciones">
-            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.TablaAtracciones">
+            <EntityTypeMapping TypeName="HikingGuanaDBModel.TablaAtracciones">
               <MappingFragment StoreEntitySet="TablaAtracciones">
                 <ScalarProperty Name="idTablaAtracciones" ColumnName="idTablaAtracciones" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -856,7 +943,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TablaColaboradores">
-            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.TablaColaboradores">
+            <EntityTypeMapping TypeName="HikingGuanaDBModel.TablaColaboradores">
               <MappingFragment StoreEntitySet="TablaColaboradores">
                 <ScalarProperty Name="idTablaColaboradores" ColumnName="idTablaColaboradores" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -869,7 +956,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TablaDestinos">
-            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.TablaDestinos">
+            <EntityTypeMapping TypeName="HikingGuanaDBModel.TablaDestinos">
               <MappingFragment StoreEntitySet="TablaDestinos">
                 <ScalarProperty Name="idTablaDestinos" ColumnName="idTablaDestinos" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -882,7 +969,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TablaToures">
-            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.TablaToures">
+            <EntityTypeMapping TypeName="HikingGuanaDBModel.TablaToures">
               <MappingFragment StoreEntitySet="TablaToures">
                 <ScalarProperty Name="idTablaToures" ColumnName="idTablaToures" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -894,10 +981,26 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Tour">
+            <EntityTypeMapping TypeName="HikingGuanaDBModel.Tour">
+              <MappingFragment StoreEntitySet="Tour">
+                <ScalarProperty Name="idTour" ColumnName="idTour" />
+                <ScalarProperty Name="idTabladestinos" ColumnName="idTabladestinos" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="lugarSalida" ColumnName="lugarSalida" />
+                <ScalarProperty Name="fechaCheckIn" ColumnName="fechaCheckIn" />
+                <ScalarProperty Name="fechaCheckOut" ColumnName="fechaCheckOut" />
+                <ScalarProperty Name="alimentacion" ColumnName="alimentacion" />
+                <ScalarProperty Name="horaSalida" ColumnName="horaSalida" />
+                <ScalarProperty Name="horaRegreso" ColumnName="horaRegreso" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="idGallery" ColumnName="idGallery" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Transporte">
-            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Transporte">
+            <EntityTypeMapping TypeName="HikingGuanaDBModel.Transporte">
               <MappingFragment StoreEntitySet="Transporte">
-                <ScalarProperty Name="foto" ColumnName="foto" />
                 <ScalarProperty Name="idTransporte" ColumnName="idTransporte" />
                 <ScalarProperty Name="tipo" ColumnName="tipo" />
                 <ScalarProperty Name="placa" ColumnName="placa" />
@@ -907,79 +1010,7 @@
                 <ScalarProperty Name="color" ColumnName="color" />
                 <ScalarProperty Name="colaboradorChofer" ColumnName="colaboradorChofer" />
                 <ScalarProperty Name="colaboradorResponsable" ColumnName="colaboradorResponsable" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Colaborador">
-            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Colaborador">
-              <MappingFragment StoreEntitySet="Colaborador">
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="fotoPerfil" ColumnName="fotoPerfil" />
-                <ScalarProperty Name="tipoColaborador" ColumnName="tipoColaborador" />
-                <ScalarProperty Name="licencia" ColumnName="licencia" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
-                <ScalarProperty Name="idiomas" ColumnName="idiomas" />
-                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
-                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="CedColaborador" ColumnName="CedColaborador" />
-                <ScalarProperty Name="idColaborador" ColumnName="idColaborador" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Clientes">
-            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Clientes">
-              <MappingFragment StoreEntitySet="Clientes">
                 <ScalarProperty Name="foto" ColumnName="foto" />
-                <ScalarProperty Name="token" ColumnName="token" />
-                <ScalarProperty Name="tarjeta" ColumnName="tarjeta" />
-                <ScalarProperty Name="contraesnia" ColumnName="contraesnia" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
-                <ScalarProperty Name="pais" ColumnName="pais" />
-                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
-                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Gallery">
-            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Gallery">
-              <MappingFragment StoreEntitySet="Gallery">
-                <ScalarProperty Name="image9" ColumnName="image9" />
-                <ScalarProperty Name="image8" ColumnName="image8" />
-                <ScalarProperty Name="image7" ColumnName="image7" />
-                <ScalarProperty Name="image6" ColumnName="image6" />
-                <ScalarProperty Name="image5" ColumnName="image5" />
-                <ScalarProperty Name="image4" ColumnName="image4" />
-                <ScalarProperty Name="image3" ColumnName="image3" />
-                <ScalarProperty Name="image2" ColumnName="image2" />
-                <ScalarProperty Name="image1" ColumnName="image1" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="idGallery" ColumnName="idGallery" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tour">
-            <EntityTypeMapping TypeName="DB_A6C1FF_HikingGuanacasteModel.Tour">
-              <MappingFragment StoreEntitySet="Tour">
-                <ScalarProperty Name="nombreTour" ColumnName="nombreTour" />
-                <ScalarProperty Name="photo" ColumnName="photo" />
-                <ScalarProperty Name="idGallery" ColumnName="idGallery" />
-                <ScalarProperty Name="precio" ColumnName="precio" />
-                <ScalarProperty Name="horaRegreso" ColumnName="horaRegreso" />
-                <ScalarProperty Name="horaSalida" ColumnName="horaSalida" />
-                <ScalarProperty Name="alimentacion" ColumnName="alimentacion" />
-                <ScalarProperty Name="fechaCheckOut" ColumnName="fechaCheckOut" />
-                <ScalarProperty Name="fechaCheckIn" ColumnName="fechaCheckIn" />
-                <ScalarProperty Name="lugarSalida" ColumnName="lugarSalida" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="idTabladestinos" ColumnName="idTabladestinos" />
-                <ScalarProperty Name="idTour" ColumnName="idTour" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

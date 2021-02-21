@@ -13,7 +13,7 @@ namespace Plantilla.Controllers
 {
     public class AtraccionController : Controller
     {
-        private DB_A6C1FF_HikingGuanacasteEntities db = new DB_A6C1FF_HikingGuanacasteEntities();
+        private HikingGuanaDBEntities db = new HikingGuanaDBEntities();
 
         // GET: Atraccion
         public async Task<ActionResult> Index()

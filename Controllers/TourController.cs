@@ -14,7 +14,7 @@ namespace Plantilla.Controllers
 {
     public class TourController : Controller
     {
-        private DB_A6C1FF_HikingGuanacasteEntities db = new DB_A6C1FF_HikingGuanacasteEntities();
+        private HikingGuanaDBEntities db = new HikingGuanaDBEntities();
 
         // GET: Tour
         public async Task<ActionResult> Index()

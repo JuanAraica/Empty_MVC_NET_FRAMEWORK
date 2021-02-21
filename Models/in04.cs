@@ -12,14 +12,15 @@ namespace Plantilla.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Actividad
+    public partial class in04
     {
-        public short idActividad { get; set; }
-        public string nombre { get; set; }
-        public string descripcion { get; set; }
-        public Nullable<int> cantidadPersonas { get; set; }
-        public string inglumentaria { get; set; }
-        public string requisitos { get; set; }
-        public Nullable<decimal> precioTotalActividad { get; set; }
+        public short id { get; set; }
+        public string CodigoProducto { get; set; }
+        public Nullable<int> Precio { get; set; }
+        public string SaldoInventario { get; set; }
+        public string FechaIngreso { get; set; }
+        public string UsuarioIngreso { get; set; }
+        public Nullable<int> IDFamilia { get; set; }
+        public string Descripcion { get; set; }
     }
 }

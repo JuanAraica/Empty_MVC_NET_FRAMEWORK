@@ -16,7 +16,7 @@ namespace Plantilla.Controllers
 {
     public class ColaboradorController : Controller
     {
-        private DB_A6C1FF_HikingGuanacasteEntities db = new DB_A6C1FF_HikingGuanacasteEntities();
+        private HikingGuanaDBEntities db = new HikingGuanaDBEntities();
 
         // GET: Colaborador
         public async Task<ActionResult> Index()
